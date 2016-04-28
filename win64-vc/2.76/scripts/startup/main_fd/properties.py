@@ -334,7 +334,6 @@ class fd_tab_col(bpy.types.PropertyGroup):
 
 bpy.utils.register_class(fd_tab_col)
 
-#TODO: implement the standard collections or remove this and add to RNA Structure
 class mvPrompt(bpy.types.PropertyGroup):
     Type = EnumProperty(name="Type",items=fd.enums.enum_prompt_types)
     TabIndex = IntProperty(name="Tab Index",default = 0)
