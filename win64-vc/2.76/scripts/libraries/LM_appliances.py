@@ -1,3 +1,9 @@
+"""
+Microvellum 
+Appliances 
+Stores all of the Logic, Product, and Insert Class definitions for appliances
+"""
+
 import fd
 
 HIDDEN_FOLDER_NAME = "_HIDDEN"
@@ -99,7 +105,7 @@ class Countertop_Appliance(fd.Library_Assembly):
 
         appliance = self.add_assembly((HIDDEN_FOLDER_NAME,APPLIANCE_LIBRARY_NAME,self.appliance_category,self.appliance_name))
         appliance.x_loc('(Width/2)-(' + str(self.width) + '/2)',[Width])
-        appliance.y_loc(value=fd.inches(-4))
+        appliance.y_loc(value=fd.inches(-2))
         appliance.z_loc(value = 0)
         
         self.update()

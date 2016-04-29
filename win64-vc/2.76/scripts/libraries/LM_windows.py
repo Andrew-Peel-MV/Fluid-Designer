@@ -1,20 +1,12 @@
+"""
+Microvellum 
+Windows
+Stores the logic and product defs for entry doors.
+"""
+
 import bpy
 import fd
 import math
-
-from bpy.types import (Panel, 
-                       Operator, 
-                       PropertyGroup)
-
-from bpy.props import (StringProperty,
-                       BoolProperty,
-                       IntProperty,
-                       FloatProperty,
-                       FloatVectorProperty,
-                       BoolVectorProperty,
-                       PointerProperty,
-                       CollectionProperty,
-                       EnumProperty)
 
 HIDDEN_FOLDER_NAME = "_HIDDEN"
 WINDOW_LIBRARY_NAME = "Window Assemblies"
@@ -22,30 +14,14 @@ WINDOW_CATEGORY_NAME = "Window Components"
 
 WINDOW_FRAME_MATERIAL = ("Plastics","White Melamine")
 
+DEFAULT_WIDTH = fd.inches(36.0)
+DEFAULT_HEIGHT = fd.inches(36.0)
+DEFAULT_DEPTH = fd.inches(8.0)
+HEIGHT_ABOVE_FLOOR = fd.inches(50.0)
+
 class Material_Pointers():
     
     Window_Frame_Material = fd.Material_Pointer(WINDOW_FRAME_MATERIAL)
-
-class Scene_Variables(PropertyGroup):
-    Default_Width = FloatProperty(name="Default Window Width",
-                                  description="Default width for windows",
-                                  default=fd.inches(36.0),
-                                  unit='LENGTH')
-    
-    Default_Height = FloatProperty(name="Default Window Height",
-                                   description="Default height for windows",
-                                   default=fd.inches(36.0),
-                                   unit='LENGTH')
-    
-    Default_Depth = FloatProperty(name="Default Window Depth",
-                                  description="Default depth for windows",
-                                  default=fd.inches(8.0),
-                                  unit='LENGTH')
-    
-    Default_Height_Above_Floor = FloatProperty(name="Default Window Height Above Floor",
-                                               description="Window height above floor",
-                                               default=fd.inches(50.0),
-                                               unit='LENGTH')
 
 class Window(fd.Library_Assembly):
     library_name = "Windows"
@@ -163,13 +139,12 @@ class Window(fd.Library_Assembly):
 class PRODUCT_Window_Fixed(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Fixed Window"
-        self.width = g.Default_Width
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.width = DEFAULT_WIDTH
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Fixed"
         self.window_divider = ""
@@ -178,13 +153,12 @@ class PRODUCT_Window_Fixed(Window):
 class PRODUCT_Window_Fixed_4_Lites(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Fixed Window 4 Lites" 
-        self.width = g.Default_Width
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.width = DEFAULT_WIDTH
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Fixed"
         self.window_divider = "Window_Divider_4_Lites"
@@ -193,13 +167,12 @@ class PRODUCT_Window_Fixed_4_Lites(Window):
 class PRODUCT_Window_Fixed_Marginal_Border(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Fixed Window Marginal Borders" 
-        self.width = g.Default_Width
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.width = DEFAULT_WIDTH
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Fixed"
         self.window_divider = "Window_Divider_Border"
@@ -208,13 +181,12 @@ class PRODUCT_Window_Fixed_Marginal_Border(Window):
 class PRODUCT_Window_Fixed_Georgian(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Fixed Window Georgian" 
-        self.width = g.Default_Width
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.width = DEFAULT_WIDTH
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Fixed"
         self.window_divider = "Window_Divider_Georgian"
@@ -223,13 +195,12 @@ class PRODUCT_Window_Fixed_Georgian(Window):
 class PRODUCT_Window_Hung(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Hung Window"
-        self.width = g.Default_Width
+        self.width = DEFAULT_WIDTH
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Hung"
         self.window_divider = ""
@@ -238,13 +209,12 @@ class PRODUCT_Window_Hung(Window):
 class PRODUCT_Window_Hung_4_Lites(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Hung Window 4 Lites"
-        self.width = g.Default_Width
+        self.width = DEFAULT_WIDTH
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Hung"
         self.window_divider = "Window_Divider_4_Lites"
@@ -253,13 +223,12 @@ class PRODUCT_Window_Hung_4_Lites(Window):
 class PRODUCT_Window_Hung_Marginal_Border(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Hung Window Marginal Borders"
-        self.width = g.Default_Width
+        self.width = DEFAULT_WIDTH
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Hung"
         self.window_divider = "Window_Divider_Border"
@@ -268,13 +237,12 @@ class PRODUCT_Window_Hung_Marginal_Border(Window):
 class PRODUCT_Window_Hung_Georgian(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Hung Window Georgian"
-        self.width = g.Default_Width
+        self.width = DEFAULT_WIDTH
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Hung"
         self.window_divider = "Window_Divider_Georgian"
@@ -283,13 +251,12 @@ class PRODUCT_Window_Hung_Georgian(Window):
 class PRODUCT_Window_Sliding(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Sliding Window"
         self.width = fd.inches(64)
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Sliding"
         self.window_divider = ""
@@ -298,13 +265,12 @@ class PRODUCT_Window_Sliding(Window):
 class PRODUCT_Window_Sliding_4_Lites(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Sliding Window 4 Lites"
         self.width = fd.inches(64)
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Sliding"
         self.window_divider = "Window_Divider_4_Lites"
@@ -313,13 +279,12 @@ class PRODUCT_Window_Sliding_4_Lites(Window):
 class PRODUCT_Window_Sliding_Marginal_Border(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Sliding Window Marginal Borders"
         self.width = fd.inches(64)
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Sliding"
         self.window_divider = "Window_Divider_Border"
@@ -328,13 +293,12 @@ class PRODUCT_Window_Sliding_Marginal_Border(Window):
 class PRODUCT_Window_Sliding_Georgian(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Sliding Window Georgian"
         self.width = fd.inches(64)
-        self.height = g.Default_Height
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.height = DEFAULT_HEIGHT
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Sliding"
         self.window_divider = "Window_Divider_Georgian"
@@ -343,13 +307,12 @@ class PRODUCT_Window_Sliding_Georgian(Window):
 class PRODUCT_Window_Triple(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Triple Window"
         self.width = fd.inches(64)
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Triple"
         self.window_divider = ""
@@ -358,13 +321,12 @@ class PRODUCT_Window_Triple(Window):
 class PRODUCT_Window_Triple_4_Lites(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Triple Window 4 Lites"
         self.width = fd.inches(64)
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Triple"
         self.window_divider = "Window_Divider_4_Lites"
@@ -373,13 +335,12 @@ class PRODUCT_Window_Triple_4_Lites(Window):
 class PRODUCT_Window_Triple_Marginal_Border(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Triple Window Marginal Borders"
         self.width = fd.inches(64)
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Triple"
         self.window_divider = "Window_Divider_Border"
@@ -388,42 +349,41 @@ class PRODUCT_Window_Triple_Marginal_Border(Window):
 class PRODUCT_Window_Triple_Georgian(Window):
     
     def __init__(self):
-        g = bpy.context.scene.lm_windows
         self.category_name = "Windows"
         self.assembly_name = "Triple Window Georgian"
         self.width = fd.inches(64)
         self.height = fd.inches(48)
-        self.depth = g.Default_Depth
-        self.height_above_floor = g.Default_Height_Above_Floor
+        self.depth = DEFAULT_DEPTH
+        self.height_above_floor = HEIGHT_ABOVE_FLOOR
         
         self.window_frame = "Window_Frame_Triple"
         self.window_divider = "Window_Divider_Georgian"
         self.window_blinds = ""                
         
-class PROMPTS_Window_Prompts(Operator):
+class PROMPTS_Window_Prompts(bpy.types.Operator):
     bl_idname = "cabinetlib.window_prompts"
     bl_label = "Window Prompts" 
     bl_options = {'UNDO'}
     
-    object_name = StringProperty(name="Object Name")
+    object_name = bpy.props.StringProperty(name="Object Name")
     
     product = None
     
-    width = FloatProperty(name="Width",unit='LENGTH',precision=4)
-    height = FloatProperty(name="Height",unit='LENGTH',precision=4)
-    depth = FloatProperty(name="Depth",unit='LENGTH',precision=4)
+    width = bpy.props.FloatProperty(name="Width",unit='LENGTH',precision=4)
+    height = bpy.props.FloatProperty(name="Height",unit='LENGTH',precision=4)
+    depth = bpy.props.FloatProperty(name="Depth",unit='LENGTH',precision=4)
 
-    x_loc = FloatProperty(name="X Location",unit='LENGTH',precision=4)
+    x_loc = bpy.props.FloatProperty(name="X Location",unit='LENGTH',precision=4)
 
-    base_point = EnumProperty(name="Main Tabs",
-                              items=[('LEFT',"Left",'Left'),
-                                     ('CENTER',"Center",'Center'),
-                                     ('RIGHT',"Right",'Right')],
-                              default = 'LEFT')
+    base_point = bpy.props.EnumProperty(name="Main Tabs",
+                                        items=[('LEFT',"Left",'Left'),
+                                               ('CENTER',"Center",'Center'),
+                                               ('RIGHT',"Right",'Right')],
+                                        default = 'LEFT')
 
-    array_x = IntProperty(name="Array X",min=0,)
+    array_x = bpy.props.IntProperty(name="Array X",min=0,)
     
-    array_x_offset = FloatProperty(name="Array X Offset",unit='LENGTH',precision=4)
+    array_x_offset = bpy.props.FloatProperty(name="Array X Offset",unit='LENGTH',precision=4)
     
     array_x_prompt = None
     
@@ -569,10 +529,7 @@ class PROMPTS_Window_Prompts(Operator):
                 self.draw_product_prompts(box)    
         
 def register():
-    bpy.utils.register_class(Scene_Variables)
-    bpy.types.Scene.lm_windows = PointerProperty(type = Scene_Variables)
     bpy.utils.register_class(PROMPTS_Window_Prompts)
     
 def unregister():
-    bpy.utils.unregister_class(Scene_Variables)
     bpy.utils.unregister_class(PROMPTS_Window_Prompts)         

@@ -1,59 +1,25 @@
+"""
+Microvellum 
+Entry Doors
+Stores the logic and product defs for entry doors.
+"""
+
 import bpy
 import fd
 import math
-
-from bpy.types import (Panel, 
-                       Operator, 
-                       PropertyGroup)
-
-from bpy.props import (StringProperty,
-                       BoolProperty,
-                       IntProperty,
-                       FloatProperty,
-                       FloatVectorProperty,
-                       BoolVectorProperty,
-                       PointerProperty,
-                       CollectionProperty,
-                       EnumProperty)
 
 HIDDEN_FOLDER_NAME = "_HIDDEN"
 DOOR_LIBRARY_NAME = "Entry Door Assemblies"
 DOOR_FRAME_CATEGORY_NAME = "Door Frames"
 DOOR_PANEL_CATEGORY_NAME = "Door Panels"
-
 DOOR_HANDLE_LIBRARY = "Hardware"
 DOOR_HANDLE_CATEGORY = "Entry Door Handles"
 
-class Global_Variables(PropertyGroup):
-    Single_Panel_Width = FloatProperty(name="Door Single Panel Width",
-                                       description="Default width for single panel entry doors",
-                                       default=fd.inches(42.0),
-                                       unit='LENGTH')    
-    
-    Double_Panel_Width = FloatProperty(name="Door Double Panel Width",
-                                       description="Default width for double panel entry doors",
-                                       default=fd.inches(78.0),
-                                       unit='LENGTH')     
-    
-    Double_Panel_Width = FloatProperty(name="Door Double Panel Width",
-                                       description="Default width for double panel entry doors",
-                                       default=fd.inches(84.0),
-                                       unit='LENGTH')  
-    
-    Door_Height = FloatProperty(name="Door Height",
-                                       description="Default height for entry doors",
-                                       default=fd.inches(83.0),
-                                       unit='LENGTH')     
-    
-    Door_Depth = FloatProperty(name="Door Depth",
-                                       description="Default depth for entry doors",
-                                       default=fd.inches(6.0),
-                                       unit='LENGTH')     
-    
-    Handle_Height = FloatProperty(name="Handle Height",
-                                       description="Default handle height",
-                                       default=fd.inches(37.0),
-                                       unit='LENGTH')      
+SINGLE_PANEL_WIDTH = fd.inches(42)
+DOUBLE_PANEL_WIDTH = fd.inches(84)
+DOOR_HEIGHT = fd.inches(83)
+DOOR_DEPTH = fd.inches(6)
+HANDLE_HEIGHT = fd.inches(37)
 
 class Entry_Door(fd.Library_Assembly):
     library_name = "Entry Doors"
@@ -73,7 +39,6 @@ class Entry_Door(fd.Library_Assembly):
     double_door = False
     
     def draw(self):
-        g = bpy.context.scene.lm_entry_doors
         self.create_assembly()
         
         if self.door_panel != "":
@@ -120,7 +85,7 @@ class Entry_Door(fd.Library_Assembly):
             door_handle.set_name("Door Handle")
             door_handle.x_loc('Width-INCH(9)',[Width])
             door_handle.y_loc(value = fd.inches(-0.875))
-            door_handle.z_loc(value = g.Handle_Height)
+            door_handle.z_loc(value = HANDLE_HEIGHT)
 
         if self.double_door == True:
             door_panel.x_dim('(Width-INCH(6))*0.5',[Width])
@@ -141,31 +106,29 @@ class Entry_Door(fd.Library_Assembly):
             door_handle_right.obj.parent = door_panel_right.obj_bp
             door_handle_right.x_loc('Dpr_Width-INCH(3)', [Dpr_Width])
             door_handle_right.y_loc(value = fd.inches(-0.875))
-            door_handle_right.z_loc(value = g.Handle_Height)
+            door_handle_right.z_loc(value = HANDLE_HEIGHT)
                 
         self.update()       
   
 class PRODUCT_Entry_Door_Frame(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Frame"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"   
   
 class PRODUCT_Entry_Door_Double_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Double Panel"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Double"
@@ -174,12 +137,11 @@ class PRODUCT_Entry_Door_Double_Panel(Entry_Door):
 class PRODUCT_Entry_Door_Inset_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Inset Panel"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Inset"
@@ -188,12 +150,11 @@ class PRODUCT_Entry_Door_Inset_Panel(Entry_Door):
 class PRODUCT_Entry_Door_Glass_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Glass Panel"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Glass"
@@ -202,12 +163,11 @@ class PRODUCT_Entry_Door_Glass_Panel(Entry_Door):
 class PRODUCT_Entry_Door_Glass_Georgian_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Glass Georgian Panel"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Glass_Georgian"
@@ -216,12 +176,11 @@ class PRODUCT_Entry_Door_Glass_Georgian_Panel(Entry_Door):
 class PRODUCT_Entry_Door_Glass_Border_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Door Glass Border Panel"
-        self.width = g.Single_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = SINGLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Glass_Marginal_Border"
@@ -230,12 +189,11 @@ class PRODUCT_Entry_Door_Glass_Border_Panel(Entry_Door):
 class PRODUCT_Entry_Double_Door_Double_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Double Door Double Panel"
-        self.width = g.Double_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = DOUBLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.double_door = True
         self.door_frame = "Door_Frame"
@@ -245,12 +203,11 @@ class PRODUCT_Entry_Double_Door_Double_Panel(Entry_Door):
 class PRODUCT_Entry_Double_Door_Inset_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Double Door Inset Panel"
-        self.width = g.Double_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = DOUBLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.double_door = True
         self.door_frame = "Door_Frame"
@@ -260,12 +217,11 @@ class PRODUCT_Entry_Double_Door_Inset_Panel(Entry_Door):
 class PRODUCT_Entry_Double_Door_Glass_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Double Door Glass Panel"
-        self.width = g.Double_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = DOUBLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.double_door = True
         self.door_frame = "Door_Frame"
@@ -275,12 +231,11 @@ class PRODUCT_Entry_Double_Door_Glass_Panel(Entry_Door):
 class PRODUCT_Entry_Double_Door_Glass_Georgian_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Double Door Glass Georgian Panel"
-        self.width = g.Double_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = DOUBLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.double_door = True
         self.door_frame = "Door_Frame"
@@ -290,33 +245,32 @@ class PRODUCT_Entry_Double_Door_Glass_Georgian_Panel(Entry_Door):
 class PRODUCT_Entry_Double_Door_Glass_Border_Panel(Entry_Door):
     
     def __init__(self):
-        g = bpy.context.scene.lm_entry_doors
         self.category_name = "Entry Doors"
         self.assembly_name = "Entry Double Door Glass Border Panel"
-        self.width = g.Double_Panel_Width
-        self.height = g.Door_Height
-        self.depth = g.Door_Depth
+        self.width = DOUBLE_PANEL_WIDTH
+        self.height = DOOR_HEIGHT
+        self.depth = DOOR_DEPTH
         
         self.double_door = True
         self.door_frame = "Door_Frame"
         self.door_panel = "Door_Panel_Glass_Marginal_Border"
         self.door_handle = "Door_Handle"             
         
-class PROMPTS_Entry_Door_Prompts(Operator):
+class PROMPTS_Entry_Door_Prompts(bpy.types.Operator):
     bl_idname = "cabinetlib.entry_door_prompts"
     bl_label = "Entry Door Prompts" 
     bl_options = {'UNDO'}
     
-    object_name = StringProperty(name="Object Name")
+    object_name = bpy.props.StringProperty(name="Object Name")
     
-    width = FloatProperty(name="Width",unit='LENGTH',precision=4)
-    height = FloatProperty(name="Height",unit='LENGTH',precision=4)
-    depth = FloatProperty(name="Depth",unit='LENGTH',precision=4)
+    width = bpy.props.FloatProperty(name="Width",unit='LENGTH',precision=4)
+    height = bpy.props.FloatProperty(name="Height",unit='LENGTH',precision=4)
+    depth = bpy.props.FloatProperty(name="Depth",unit='LENGTH',precision=4)
 
-    door_rotation = FloatProperty(name="Door Rotation",subtype='ANGLE',min=0,max=math.radians(110))
+    door_rotation = bpy.props.FloatProperty(name="Door Rotation",subtype='ANGLE',min=0,max=math.radians(110))
     
-    door_swing = EnumProperty(name="Door Swing",items=[('Left Swing',"Left Swing","Left Swing"),
-                                                       ('Right Swing',"Right Swing","Right Swing")])
+    door_swing = bpy.props.EnumProperty(name="Door Swing",items=[('Left Swing',"Left Swing","Left Swing"),
+                                                                 ('Right Swing',"Right Swing","Right Swing")])
     product = None
     
     open_door_prompt = None
@@ -456,11 +410,8 @@ class PROMPTS_Entry_Door_Prompts(Operator):
                 self.draw_product_placment(box)        
         
 def register():
-    bpy.utils.register_class(Global_Variables)
-    bpy.types.Scene.lm_entry_doors = PointerProperty(type = Global_Variables)
     bpy.utils.register_class(PROMPTS_Entry_Door_Prompts)
     
 def unregister():
-    bpy.utils.unregister_class(Global_Variables)
     bpy.utils.unregister_class(PROMPTS_Entry_Door_Prompts)      
         
