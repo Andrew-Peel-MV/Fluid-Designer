@@ -63,6 +63,11 @@ def INCH(value):
     """
     return value * .0254
 
+def MILLIMETER(value):
+    """ Converts value to meters
+    """
+    return value * .001
+
 def LIMIT(val,val_min,val_max):
     """ Returns par1 if value is between min and max else
         the minimum or maximum value value will be returned
