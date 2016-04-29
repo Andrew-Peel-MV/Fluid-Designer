@@ -29,10 +29,6 @@ def register():
     from . import fd_scene
     from . import fd_world
     
-    #QT
-    from . import fd_QtGui
-    fd_QtGui.register()
-    
     fd_assembly.register()
     fd_driver.register()
     fd_general.register()
@@ -53,10 +49,6 @@ def unregister():
     from . import fd_prompts
     from . import fd_scene
     from . import fd_world
-    
-    #QT
-    from . import fd_QtGui
-    fd_QtGui.unregister()
 
     fd_assembly.unregister()
     fd_driver.unregister()
