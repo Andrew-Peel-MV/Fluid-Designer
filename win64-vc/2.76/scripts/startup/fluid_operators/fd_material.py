@@ -805,7 +805,7 @@ class OPS_assign_material_interface(bpy.types.Operator):
                 row = col2.row()
             else:
                 row = col3.row()
-            row.label(material.name)
+            row.label(material.name.replace("_"," "))
             row.prop(material,'assign_material',text="")
     
 class OPS_assign_material(Operator):

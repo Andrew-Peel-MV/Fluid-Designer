@@ -3,23 +3,11 @@
 import bpy
 import fd
 
-from bpy.types import Operator
-
-from bpy.props import (StringProperty,
-                       BoolProperty,
-                       IntProperty,
-                       FloatProperty,
-                       FloatVectorProperty,
-                       BoolVectorProperty,
-                       PointerProperty,
-                       CollectionProperty,
-                       EnumProperty)
-
-class PROMPTS_Prompts_Page(Operator):
+class PROMPTS_Prompts_Page(bpy.types.Operator):
     bl_idname = "promptui.prompts_page"
     bl_label = "Prompt Page Name" 
     
-    object_name = StringProperty(name="Object Name")
+    object_name = bpy.props.StringProperty(name="Object Name")
     
     # Store the product as a class level property for convenience. This is not required
     product = None

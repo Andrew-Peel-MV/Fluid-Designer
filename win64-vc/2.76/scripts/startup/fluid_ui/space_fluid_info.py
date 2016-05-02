@@ -19,6 +19,7 @@
 import bpy
 from bpy.types import Header, Menu
 import os
+import addon_utils
 
 class INFO_HT_fluidheader(Header):
     bl_space_type = 'INFO'
@@ -138,6 +139,10 @@ class INFO_MT_fluidfile(Menu):
 
         layout.menu("INFO_MT_file_import", icon='IMPORT')
         layout.menu("INFO_MT_file_export", icon='EXPORT')
+        
+        layout.separator()
+        
+        layout.menu("INFO_MT_addons", icon='PLUGIN')
         
         layout.separator()
 
@@ -287,6 +292,34 @@ class INFO_MT_projecttemplates(Menu):
             if ext == '.blend':
                 layout.operator("fd_general.create_project",text=filename).template_name = file
 
+class INFO_MT_addons(Menu):
+    bl_label = "Fluid Add-Ons"
+    
+    def draw(self, context):
+        layout = self.layout
+        userpref = context.user_preferences
+        used_ext = {ext.module for ext in userpref.addons}
+        
+        for mod in addon_utils.modules(refresh=False):
+            if mod.bl_info["category"] == "Fluid Designer":
+                module_name = mod.__name__
+                is_enabled = module_name in used_ext  
+                              
+                if is_enabled:
+                    layout.operator("wm.addon_disable", 
+                                    icon='CHECKBOX_HLT', 
+                                    text=mod.bl_info["name"], 
+                                    emboss=False).module = module_name
+                else:
+                    layout.operator("wm.addon_enable", 
+                                    icon='CHECKBOX_DEHLT', 
+                                    text=mod.bl_info["name"], 
+                                    emboss=False).module = module_name
+                    
+        layout.separator()
+        
+        layout.operator("wm.save_userpref", text="Save User Settings")
+
 classes = [
            INFO_MT_fluidfile,
            INFO_MT_fd_menus,
@@ -298,7 +331,8 @@ classes = [
            INFO_MT_edit,
            INFO_MT_thumbnail,
            INFO_MT_projecttemplates,
-           INFO_MT_scenes
+           INFO_MT_scenes,
+           INFO_MT_addons
            ]
 
 def register():

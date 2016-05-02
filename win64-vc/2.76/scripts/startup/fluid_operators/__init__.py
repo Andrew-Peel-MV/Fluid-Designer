@@ -28,6 +28,7 @@ def register():
     from . import fd_prompts
     from . import fd_scene
     from . import fd_world
+    from . import fd_text_editor
     
     fd_assembly.register()
     fd_driver.register()
@@ -38,6 +39,7 @@ def register():
     fd_prompts.register()
     fd_scene.register()
     fd_world.register()
+    fd_text_editor.register()
     
 def unregister():
     from . import fd_assembly
@@ -49,7 +51,8 @@ def unregister():
     from . import fd_prompts
     from . import fd_scene
     from . import fd_world
-
+    from . import fd_text_editor
+    
     fd_assembly.unregister()
     fd_driver.unregister()
     fd_general.unregister()
@@ -58,3 +61,4 @@ def unregister():
     fd_object.unregister()
     fd_prompts.unregister()
     fd_world.unregister()
+    fd_text_editor.unregister()

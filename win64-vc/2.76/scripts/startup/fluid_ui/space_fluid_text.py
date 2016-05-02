@@ -96,7 +96,32 @@ class PANEL_Library_Modules(Panel):
             row.operator("text.replace_set_selected", text="", icon='TEXT')
             col.operator("text.replace")
             
-            box.prop(st, "use_match_case")       
+            box.prop(st, "use_match_case")
+            
+#         if wm.library_module_tabs == 'PROPERTIES':   
+#             row = box.row()
+#             row.prop(st, "font_size")
+#             
+#             col = layout.column()
+#             col.label("Completion Providers:")
+#             col.prop(wm.completion_providers, "use_jedi_completion", "Jedi")
+#             col.prop(wm.completion_providers, "use_word_completion", "Existing Words")
+#             col.prop(wm.completion_providers, "use_operator_completion", "Operators")
+#     
+#             row = layout.row()
+#             col = row.column(align = True)
+#             col.label("Context Box")
+#             col.prop(wm.text_context_box, "font_size")
+#             col.prop(wm.text_context_box, "line_height")
+#             col.prop(wm.text_context_box, "width")
+#             col.prop(wm.text_context_box, "padding")
+#             col.prop(wm.text_context_box, "lines")
+#     
+#             col = row.column(align = True)
+#             col.label("Description Box")
+#             col.prop(wm.text_description_box, "font_size")
+#             col.prop(wm.text_description_box, "line_height")
+#             col.prop(wm.text_description_box, "padding")            
 
 class MENU_Library_Module_options(Menu):
     bl_label = "Library Module Options"

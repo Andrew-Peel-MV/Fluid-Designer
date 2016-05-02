@@ -20,7 +20,6 @@
 
 # note, properties_animviz is a helper module only.
 
-
 if "bpy" in locals():
     from importlib import reload
     for val in _modules_loaded.values():

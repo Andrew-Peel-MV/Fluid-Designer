@@ -1256,6 +1256,8 @@ class OPS_load_library_modules(Operator):
     bl_label = "Load Library Modules"
     bl_description = "This will load the available product library modules"
     bl_options = {'UNDO'}
+    
+    
 
     def get_library(self,libraries,library_name,module_name):
         if library_name in libraries:
@@ -1267,6 +1269,7 @@ class OPS_load_library_modules(Operator):
         return lib
             
     def load_product_libraries(self,context):
+        from importlib import import_module, reload
         wm = context.window_manager.cabinetlib
         path, filename = os.path.split(__file__)
         files = os.listdir(path)
@@ -1276,14 +1279,19 @@ class OPS_load_library_modules(Operator):
         
         modules = fd.get_library_modules()
         
-#         path = os.path.join(os.path.dirname(bpy.app.binary_path),str(bpy.app.version[0]) + "." + str(bpy.app.version[1]),"scripts","libraries")
-#         
-#         print('LOADING LIBS',path)
-#         
-#         sys.path.append(path)
+        mods = []
         
-        for module in modules:  
-            mod = __import__(module)
+        for module in sys.modules:
+            if "LM_" in module:
+                mods.append(module)
+            
+        # You have to manually delete modules in order for python to reload them
+        for mod in mods:
+            del sys.modules[mod]
+        
+        for module in modules:
+            mod1 = import_module(module)
+            mod = reload(mod1)
             for name, obj in inspect.getmembers(mod):
                 if inspect.isclass(obj) and "PRODUCT_" in name:
                     product = obj()
@@ -1306,6 +1314,7 @@ class OPS_load_library_modules(Operator):
                         item.has_file = False
             
     def load_insert_libraries(self,context):
+        from importlib import import_module, reload
         wm = context.window_manager.cabinetlib
         path, filename = os.path.split(__file__)
         files = os.listdir(path)
@@ -1315,8 +1324,19 @@ class OPS_load_library_modules(Operator):
         
         modules = fd.get_library_modules()
         
+        mods = []
+        
+        for module in sys.modules:
+            if "LM_" in module:
+                mods.append(module)
+            
+        # You have to manually delete modules in order for python to reload them
+        for mod in mods:
+            del sys.modules[mod]
+        
         for module in modules:
-            mod = __import__(module)
+            mod1 = import_module(module)
+            mod = reload(mod1)
             for name, obj in inspect.getmembers(mod):
                 if inspect.isclass(obj) and "INSERT_" in name:
                     insert = obj()
@@ -2663,7 +2683,7 @@ class OPS_create_thumbnails(Operator):
                     row.label(text="",icon='BLANK1')
                     row.label(text=item.name,icon=self.item_icon)
                     row.prop(item,"is_selected",text="")      
-        
+                                          
 #------REGISTER
 classes = [
            OPS_drag_and_drop,

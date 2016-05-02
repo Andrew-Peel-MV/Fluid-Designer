@@ -279,11 +279,6 @@ class VIEW3D_MT_fluidview(Menu):
         
         layout.menu("MENU_viewport_settings",icon='SCRIPTPLUGINS',text="Viewport Settings")
         
-        #QT
-        layout.separator()
-        
-        layout.operator("fd_qtgui.call_gui",text="Call QtGui")
-        
 #         #TODO ADD SCREEN SHOT OPERATOR
 #         layout.separator()
 #         

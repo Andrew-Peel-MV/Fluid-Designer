@@ -40,33 +40,43 @@ class TEXT_HT_header(Header):
             sub = row.row(align=True)
             sub.alert = True
             sub.operator("text.resolve_conflict", text="", icon='HELP')
-
+            
         row = layout.row(align=True)
         row.template_ID(st, "text", new="text.new", unlink="text.unlink", open="text.open")
-
-        row = layout.row(align=True)
-        row.prop(st, "show_line_numbers", text="")
-        row.prop(st, "show_word_wrap", text="")
-        row.prop(st, "show_syntax_highlight", text="")
-
+            
         if text:
             osl = text.name.endswith(".osl") or text.name.endswith(".oso")
 
-            if osl:
-                row = layout.row()
-                row.operator("node.shader_script_update")
-            else:
+            if not osl:
                 row = layout.row()
                 row.operator("text.run_script")
+            
+        if context.scene.mv.ui.use_default_blender_interface:
 
-                row = layout.row()
-                row.active = text.name.endswith(".py")
-                row.prop(text, "use_module")
+            row = layout.row(align=True)
+            row.prop(st, "show_line_numbers", text="")
+            row.prop(st, "show_word_wrap", text="")
+            row.prop(st, "show_syntax_highlight", text="")
 
+            if text:
+                osl = text.name.endswith(".osl") or text.name.endswith(".oso")
+    
+                if osl:
+                    row = layout.row()
+                    row.operator("node.shader_script_update")
+                else:
+                    row = layout.row()
+                    row.operator("text.run_script")
+    
+                    row = layout.row()
+                    row.active = text.name.endswith(".py")
+                    row.prop(text, "use_module")
+        if text:
             row = layout.row()
             if text.filepath:
                 if text.is_dirty:
-                    row.label(text=iface_("File: *%r (unsaved)") %
+                    row.label("(unsaved)",icon='ERROR')
+                    row.label(text=iface_("File: *%r") %
                               text.filepath, translate=False)
                 else:
                     row.label(text=iface_("File: %r") %
@@ -105,6 +115,13 @@ class TEXT_PT_properties(Panel):
     bl_label = "Properties"
     bl_options = {'DEFAULT_CLOSED'}
 
+    @classmethod
+    def poll(cls, context):
+        if context.scene.mv.ui.use_default_blender_interface:
+            return True
+        else:
+            return False
+
     def draw(self, context):
         layout = self.layout
 
@@ -136,6 +153,13 @@ class TEXT_PT_find(Panel):
     bl_region_type = 'UI'
     bl_label = "Find"
     bl_options = {'DEFAULT_CLOSED'}
+
+    @classmethod
+    def poll(cls, context):
+        if context.scene.mv.ui.use_default_blender_interface:
+            return True
+        else:
+            return False
 
     def draw(self, context):
         layout = self.layout
@@ -182,9 +206,8 @@ class TEXT_MT_view(Menu):
 
         layout.separator()
 
-        layout.operator("screen.area_dupli")
-        layout.operator("screen.screen_full_area", text="Toggle Maximize Area")
-        layout.operator("screen.screen_full_area").use_hide_panels = True
+        layout.operator("screen.area_dupli",icon='GHOST')
+        layout.operator("screen.screen_full_area", text="Toggle Maximize Area",icon='FULLSCREEN_ENTER')
 
 
 class TEXT_MT_text(Menu):

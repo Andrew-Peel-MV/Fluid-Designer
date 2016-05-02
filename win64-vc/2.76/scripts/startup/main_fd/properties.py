@@ -103,6 +103,19 @@ def update_scene_index(self,context):
         v3d.view_rotation = scene.mv.initial_view_rotation  
         space_data.viewport_shade = scene.mv.initial_shade_mode
     
+def update_text_editor_outline_index(self,context):    
+    wm = context.window_manager.cabinetlib
+    selected_member = wm.module_members[wm.module_members_index]
+    
+    for area in  bpy.data.screens['Default'].areas:
+        if area.type == 'TEXT_EDITOR':
+            for space in area.spaces:
+                if space.type == 'TEXT_EDITOR':
+                    space.find_text = "class " + selected_member.name + "("
+                    space.use_find_wrap = True
+  
+    bpy.ops.text.find()
+    
 def assign_default_libraries(context):
     library_tabs = context.scene.mv.ui.library_tabs
     lib_name = "" 
@@ -122,33 +135,34 @@ def assign_default_libraries(context):
     if library_tabs == 'WORLD':
         path = fd.get_library_dir("worlds")
         
-    libs = os.listdir(path)
-
-    for lib in libs:
-        library_path = os.path.join(path,lib)
-        if os.path.isdir(library_path):
-            if library_tabs == 'SCENE':
-                context.scene.mv.scene_library_name = lib            
-                lib_name = lib
-            if library_tabs == 'PRODUCT':
-                context.scene.mv.product_library_name = lib
-                lib_name = lib
-            if library_tabs == 'INSERT':
-                context.scene.mv.insert_library_name = lib
-                lib_name = lib
-            if library_tabs == 'ASSEMBLY':
-                context.scene.mv.assembly_library_name = lib
-                lib_name = lib
-            if library_tabs == 'OBJECT':
-                context.scene.mv.object_library_name = lib
-                lib_name = lib
-            if library_tabs == 'MATERIAL':
-                context.scene.mv.material_library_name = lib
-                lib_name = lib
-            if library_tabs == 'WORLD':
-                context.scene.mv.world_library_name = lib
-                lib_name = lib
-            break
+    if os.path.exists(path):
+        libs = os.listdir(path)
+    
+        for lib in libs:
+            library_path = os.path.join(path,lib)
+            if os.path.isdir(library_path):
+                if library_tabs == 'SCENE':
+                    context.scene.mv.scene_library_name = lib            
+                    lib_name = lib
+                if library_tabs == 'PRODUCT':
+                    context.scene.mv.product_library_name = lib
+                    lib_name = lib
+                if library_tabs == 'INSERT':
+                    context.scene.mv.insert_library_name = lib
+                    lib_name = lib
+                if library_tabs == 'ASSEMBLY':
+                    context.scene.mv.assembly_library_name = lib
+                    lib_name = lib
+                if library_tabs == 'OBJECT':
+                    context.scene.mv.object_library_name = lib
+                    lib_name = lib
+                if library_tabs == 'MATERIAL':
+                    context.scene.mv.material_library_name = lib
+                    lib_name = lib
+                if library_tabs == 'WORLD':
+                    context.scene.mv.world_library_name = lib
+                    lib_name = lib
+                break
     
     if lib_name:
         lib_path = os.path.join(path,lib_name)
@@ -832,7 +846,43 @@ class List_Library(PropertyGroup):
     items = CollectionProperty(name="Items",type=List_Library_Item)
     index = IntProperty(name="Index")
 
-bpy.utils.register_class(List_Library)
+bpy.utils.register_class(List_Library)    
+    
+# def prop_changed(self, context):
+#     for area in bpy.context.screen.areas:
+#         if area.type == "TEXT_EDITOR":
+#             area.tag_redraw()    
+#     
+# class CompletionProviders (bpy.types.PropertyGroup):
+#     use_jedi_completion = BoolProperty(default = True, name = "Use Jedi Completion",
+#         update = prop_changed, description = "Use the Jedi autocompletion library for python")
+#     use_word_completion = BoolProperty(default = True, name = "Use Word Completion",
+#         update = prop_changed, description = "The context box will also contain words that you already used in the file")
+#     use_operator_completion = BoolProperty(default = True, name = "Use Operator Completion",
+#         update = prop_changed, description = "Activate the autocompletion for calling operators (bpy.ops)")    
+#     
+# bpy.utils.register_class(CompletionProviders)    
+#     
+# class ContextBoxProperties(bpy.types.PropertyGroup):
+#     font_size = IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
+#     line_height = IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
+#     width = IntProperty(default = 200, name = "Width", min = 10, update = prop_changed)
+#     padding = IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
+#     lines = IntProperty(default = 8, name = "Lines", min = 1, update = prop_changed)
+#     
+# bpy.utils.register_class(ContextBoxProperties)     
+# 
+# class DescriptionBoxProperties(bpy.types.PropertyGroup):
+#     font_size = IntProperty(default = 12, name = "Font Size", min = 10, update = prop_changed)
+#     line_height = IntProperty(default = 21, name = "Line Height", min = 5, update = prop_changed)
+#     padding = IntProperty(default = 4, name = "Padding", min = 0, update = prop_changed)
+#     
+# bpy.utils.register_class(DescriptionBoxProperties)        
+    
+class List_Module_Members(bpy.types.PropertyGroup):
+    index = bpy.props.IntProperty(name="Index")      
+    
+bpy.utils.register_class(List_Module_Members)       
     
 class Category(PropertyGroup):
     path = StringProperty(name="Path")
@@ -1557,7 +1607,25 @@ class WM_PROPERTIES(PropertyGroup):
                                      default="",
                                      subtype='DIR_PATH')   
     
+    #TEXT EDITOR
+    module_members = bpy.props.CollectionProperty(name="Module Members", 
+                                                  type=List_Module_Members)    
     
+    module_members_index = bpy.props.IntProperty(name="Module Member Index", 
+                                                 default=0,
+                                                 update=update_text_editor_outline_index)   
+    
+    library_module_tabs = bpy.props.EnumProperty(name="Library Module Tabs",
+                                             items=[('LIBRARY_DEVELOPMENT',"Library Development","Library Development"),
+                                                    ('FIND',"Find","Find"),
+                                                    ('PROPERTIES',"Properties","Properties")],
+                                             default='LIBRARY_DEVELOPMENT')
+    
+#     completion_providers = PointerProperty(type = CompletionProviders)
+#     
+#     text_context_box = PointerProperty(type = ContextBoxProperties)
+#     
+#     text_description_box = PointerProperty(type = DescriptionBoxProperties)
     
     def draw_inserts(self,layout):
         pass

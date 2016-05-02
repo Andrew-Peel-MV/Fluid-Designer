@@ -3,7 +3,7 @@ from . interface import Provider, Completion
 from . generate_fake_bpy import fake_package_name
 
 try: import jedi
-except: print("fd Scripting: jedi library not found")
+except: print("jedi library not found")
 
 
 def jedi_module_found():

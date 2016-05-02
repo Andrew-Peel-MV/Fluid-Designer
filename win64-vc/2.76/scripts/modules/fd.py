@@ -35,17 +35,6 @@ import xml.etree.ElementTree as ET
 
 from bpy.types import PropertyGroup
 
-from bpy.props import (StringProperty,
-                       BoolProperty,
-                       IntProperty,
-                       FloatProperty,
-                       FloatVectorProperty,
-                       BoolVectorProperty,
-                       PointerProperty,
-                       CollectionProperty,
-                       EnumProperty)
-
-
 LIBRARY_PATH_FILENAME = "fd_paths.xml"
 
 class enums():
@@ -162,9 +151,16 @@ class enums():
     
 class Assembly():
     
+    """ Type:bpy.types.Object - base point of the assembly """
     obj_bp = None
+    
+    """ Type:bpy.types.Object - x dimension of the assembly """
     obj_x = None
+    
+    """ Type:bpy.types.Object - y dimension of the assembly """
     obj_y = None
+    
+    """ Type:bpy.types.Object - z dimension of the assembly """
     obj_z = None
 
     def __init__(self,obj_bp=None):
@@ -186,6 +182,8 @@ class Assembly():
 
     def create_assembly(self):
         """ This creates the basic structure for an assembly
+            This must be called first when creating an assembly 
+            from a script
         """
         bpy.ops.object.select_all(action='DESELECT')
         verts = [(0, 0, 0)]
@@ -1039,34 +1037,92 @@ class Assembly():
 
 class Library_Assembly(Assembly):
     
-    library_name = "" # Library Folder Name to save assembly to
-    category_name = "" # Category Folder Name to save assembly to 
-    assembly_name = "" # Assembly Name to save the assembly as
-    placement_type = "" # ("","Corner") Used for drag and Drop
-    product_shape = "RECTANGLE" # ("RECTANGLE","INSIDE_NOTCH","INSIDE_DIAGONAL","OUTSIDE_NOTCH","OUTSIDE_DIAGONAL","TRANSITION","CUSTOM") Used for molding placment
-    property_id = "" # Prompt Page Operator bl_id
-    type_assembly = "PRODUCT" # ("PRODUCT","INSERT") Determines if the library assembly is an Insert or a Product
-    mirror_z = False # Determines if the z dimension is mirrored. Used for Upper Cabinets
-    mirror_y = True # Determines if the y dimension is mirrored.
+    """ Type:string - The library folder name to save assembly to """
+    library_name = ""
+    
+    """ Type:string - The category folder name to save assembly to """
+    category_name = ""
+    
+    """ Type:string - The assembly name """
+    assembly_name = ""
+    
+    """ Type:enum_string("","Corner") - Used for drag and drop from placement """
+    placement_type = ""
+    
+    """ Type:enum_string("RECTANGLE",
+                         "INSIDE_NOTCH",
+                         "INSIDE_DIAGONAL",
+                         "OUTSIDE_NOTCH",
+                         "OUTSIDE_DIAGONAL",
+                         "TRANSITION",
+                         "CUSTOM") 
+                         - Used for molding placement """
+    product_shape = "RECTANGLE"
+    
+    """ Type:string - The Prompt Page Operator ID
+                      This is the bl_id property  """
+    property_id = ""
+
+    """ Type:enum_string("PRODUCT",
+                         "INSERT") 
+                         - Determines if the library assembly is an insert or a product """
+    type_assembly = "PRODUCT"
+    
+    """ Type:bool - Determines if the z dimension is mirrored. 
+                    Typically used for upper/suspended cabinets  """
+    mirror_z = False
+    
+    """ Type:bool - Determines if the y dimension is mirrored. 
+                    Typically used for all cabinets  """
+    mirror_y = True
+    
+    """ Type:float - The default x dimension of the assembly  """
     width = 0
+    
+    """ Type:float - The default z dimension of the assembly  """
     height = 0
+    
+    """ Type:float - The default y dimension of the assembly  """
     depth = 0
+    
+    """ Type:float - The default z location of the assembly  """
     height_above_floor = 0
-    prompts = {} # Allows you to overried prompts with a dictionary {"Prompt Name":prompt_value}
+    
+    """ Type:dictionary - The list of prompts to overwrite when creating this assembly
+                          key = prompt name
+                          value = prompt value  """
+    prompts = {}
     
     def add_assembly(self,path):
+        """ Returns:Part - adds an assembly to this assembly
+                           and returns it as a fd.Part
+                              
+            path:tuple of strings - The folder location to the assembly to add.
+                                    split into strings.
+                                    i.e ("Library Name","Category Name","Assembly Name")
+        """
         assembly = get_assembly(path[:-1], path[-1])
         assembly.obj_bp.parent = self.obj_bp
         part = Part(assembly.obj_bp)
         return part
     
     def add_object(self,path):
+        """ Returns:Assembly_Object - adds an assembly to this assembly
+                                      and returns it as a fd.Part
+                              
+            path:tuple of strings - The folder location to the object to add.
+                                    split into strings.
+                                    i.e ("Library Name","Category Name","Object Name")
+        """
         obj = get_object(path[:-1], path[-1])
         obj.parent = self.obj_bp
         ass_obj = Assembly_Object(obj)
         return ass_obj
         
     def add_opening(self):
+        """ Returns:Assembly - creates an empty opening to this assembly
+                               and returns it as an Assembly
+        """
         opening = Assembly()
         opening.create_assembly()
         opening.obj_bp.parent = self.obj_bp
@@ -1075,11 +1131,25 @@ class Library_Assembly(Assembly):
         return opening
     
     def set_property_id(self,obj,property_id):
+        """ Returns:None - sets all of the property_id values for the assembly
+                           and all of its children.
+        """
         obj.mv.property_id = property_id
         for child in obj.children:
             self.set_property_id(child,property_id)
 
     def update(self,obj_bp=None):
+        """ Returns:None - sets the specification group, 
+                                    placement_type, 
+                                    product_shape,
+                                    mirror_z,
+                                    mirror_y,
+                                    name,
+                                    product_id,
+                                    height_above_floor,
+                                    runs the calculators,
+                                    and sets prompts based on the prompt dictionary property
+        """
         if obj_bp:
             self.obj_bp = obj_bp
         for child in self.obj_bp.children:
@@ -1121,6 +1191,12 @@ class Library_Assembly(Assembly):
 class Part(Assembly):
     
     def material(self,material_pointer_name):
+        """ Returns:None - sets the every material slot for every mesh
+                           to the material_pointer_name
+                           
+            material_pointer_name:string - name of the material pointer 
+                                           to assign
+        """
         for slot in self.obj_bp.cabinetlib.material_slots:
             slot.pointer_name = material_pointer_name
         for child in self.obj_bp.children:
@@ -1129,11 +1205,31 @@ class Part(Assembly):
                     slot.pointer_name = material_pointer_name
 
     def cutpart(self,cutpart_name):
+        """ Returns:None - assigns the every mesh cut part 
+                           to the cutpart_name
+                           
+            cutpart_name:string - name of the material pointer 
+                                  to assign
+        """
         for child in self.obj_bp.children:
             if child.type == 'MESH' and child.cabinetlib.type_mesh == 'CUTPART':
                 child.cabinetlib.cutpart_name = cutpart_name
 
     def edgebanding(self,edgebanding_name,w1=False,l1=False,w2=False,l2=False):
+        """ Returns:None - assigns every mesh cut part 
+                           to the edgebanding_name
+                           
+            edgebanding_name:string - name of the edgepart pointer 
+                                      to assign
+                                      
+            w1:bool - determines if to edgeband width 1 of the part
+            
+            w2:bool - determines if to edgeband width 2 of the part
+            
+            l1:bool - determines if to edgeband length 1 of the part
+            
+            l2:bool - determines if to edgeband length 2 of the part
+        """
         for child in self.obj_bp.children:
             if child.type == 'MESH' and child.cabinetlib.type_mesh == 'EDGEBANDING':
                 child.cabinetlib.edgepart_name = edgebanding_name
@@ -1149,12 +1245,27 @@ class Part(Assembly):
                     child.cabinetlib.edge_l2 = edgebanding_name
                  
     def add_machine_token(self,machining_name,machining_type,machining_face):
+        """ Returns:tuple(bpy.types.Object,properties.Machining_Token) - adds a machine token
+                                                                         to every cutpart mesh
+                           
+            edgebanding_name:string - name of the edgepart_pointer to assign
+                                      
+            w1:bool - edgeband width 1 of the part
+            
+            w2:bool - edgeband width 2 of the part
+            
+            l1:bool - edgeband length 1 of the part
+            
+            l2:bool - edgeband length 2 of the part
+        """
         for child in self.obj_bp.children:
             if child.cabinetlib.type_mesh == 'CUTPART':
                 token = child.cabinetlib.mp.add_machine_token(machining_name ,machining_type,machining_face)
                 return child, token
                  
     def get_cutparts(self):
+        """ Returns:list of bpy.types.Object - gets all mesh objects that are assigned as cutparts.
+        """
         cutparts = []
         for child in self.obj_bp.children:
             if child.type == 'MESH' and child.cabinetlib.type_mesh == 'CUTPART':
@@ -1165,6 +1276,8 @@ class Part(Assembly):
         pass
     
     def machine_token(self,obj,token,token_property,expression,driver_vars,index=None):
+        """ Returns:None - sets a driver for a machine token that is passed in.
+        """
         data_path = ""
         for m_token in obj.cabinetlib.mp.machine_tokens:
             if m_token == token:
@@ -2096,12 +2209,14 @@ def get_library_modules():
         path = bpy.context.window_manager.mv.library_module_path
     else:
         path = get_library_scripts_dir()
-
-    files = os.listdir(path)
-    for file in files:
-        module_name, ext = os.path.splitext(file)
-        if ext == ".py": #Look For Library Modules
-            modules.append(module_name)
+        
+    if os.path.exists(path):
+        files = os.listdir(path)
+        for file in files:
+            module_name, ext = os.path.splitext(file)
+            if ext == ".py": #Look For Library Modules
+                modules.append(module_name)  
+            
     return modules
 
 def get_library_dir(lib_type = ""):

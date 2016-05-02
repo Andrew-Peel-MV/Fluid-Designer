@@ -1,10 +1,9 @@
 # This is an example template for Library Assemblies
-
+import bpy
 import fd
 
 # Add Library References below import as constants
 PART = ("Cabinet Assemblies","Cut Parts","Part with Front Edgebanding")
-
 
 class PRODUCT_New_Assembly(fd.Library_Assembly):
     library_name = "Library Name"
@@ -25,19 +24,13 @@ class PRODUCT_New_Assembly(fd.Library_Assembly):
         
         # This is how you add prompts. It is recommended to add a prompt tab they can be viewed on
         self.add_tab(name='Main Options',tab_type='VISIBLE')
-        self.add_prompt(name="Use Full Depth Right",prompt_type='CHECKBOX',value=False,tab_index=0)
-        self.add_prompt(name="Use Full Depth Left",prompt_type='CHECKBOX',value=False,tab_index=0)
-        self.add_prompt(name="Left Depth",prompt_type='DISTANCE',value=False,tab_index=0)
-        self.add_prompt(name="Right Depth",prompt_type='DISTANCE',value=False,tab_index=0)
+        self.add_prompt(name="New Prompt",prompt_type='CHECKBOX',value=False,tab_index=0)
         
         # This is how to retrieve variables that can be used in python expressions
         Width = self.get_var('dim_x','Width')
         Height = self.get_var('dim_z','Height')
         Depth = self.get_var('dim_y','Depth')
-        Use_Full_Depth_Right = self.get_var("Use Full Depth Right")
-        Use_Full_Depth_Left = self.get_var("Use Full Depth Left")
-        Left_Depth = self.get_var("Left Depth")
-        Right_Depth = self.get_var("Right Depth")
+        New_Prompt = self.get_var("New Prompt")
         
         # This is how to add assemblies from the library and set formulas
         assembly = self.add_assembly(PART)
@@ -51,16 +44,6 @@ class PRODUCT_New_Assembly(fd.Library_Assembly):
         assembly.x_dim('Width',[Width])
         assembly.y_dim('Depth',[Depth])
         assembly.z_dim('Height',[Height])
-
-        # This is how to add an object from the library 
-        deco_molding = self.add_object(category_name="OWP Cabinet Molding",object_name='OWP 6990')
-        deco_molding.set_name("Deco Part")
-        deco_molding.x_loc(value = 0)
-        deco_molding.y_loc('Depth',[Depth])
-        deco_molding.z_loc(value = 0)
-        deco_molding.x_rot(value = 0)
-        deco_molding.y_rot(value = 0)
-        deco_molding.z_rot(value = 0)
 
         # This updates several properties for the assembly. THIS MUST BE CALLED LAST
         self.update()

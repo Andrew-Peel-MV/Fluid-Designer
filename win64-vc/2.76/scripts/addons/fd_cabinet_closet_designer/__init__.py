@@ -62,7 +62,7 @@ class PANEL_Cabinet_Closet_Designer(Panel):
     
     def draw(self, context):
         layout = self.layout
-        g = context.scene.lm_closets
+        g = context.scene.lm_cabinet_closet_designer
         g.draw(layout)
 
 def register():
