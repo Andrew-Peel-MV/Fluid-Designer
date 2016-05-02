@@ -22,39 +22,89 @@ import os
 
 import fd
 
+class LIST_module_members(bpy.types.UIList):
+
+    def draw_item(self, context, layout, data, item, icon, active_data, active_propname, index):
+        if "PRODUCT_" in item.name:
+            layout.label(item.name, icon='OUTLINER_OB_LATTICE')
+        elif "INSERT_" in item.name:    
+            layout.label(item.name, icon='STICKY_UVS_LOC')
+        elif "PROPERTIES" in item.name:  
+            layout.label(item.name, icon='SCENE_DATA') 
+        elif "OPERATOR" in item.name:  
+            layout.label(item.name, icon='MODIFIER')
+        elif "PROMPTS" in item.name:  
+            layout.label(item.name, icon='SETTINGS')
+        elif "Material_Pointers" in item.name:  
+            layout.label(item.name, icon='MATERIAL')  
+        elif "Cutpart_Pointers" in item.name:  
+            layout.label(item.name, icon='MOD_UVPROJECT')
+        elif "Edgepart_Pointers" in item.name:  
+            layout.label(item.name, icon='EDGESEL')  
+        else:
+            layout.label(item.name, icon='SPACE3')
+          
 class PANEL_Library_Modules(Panel):
     bl_space_type = "TEXT_EDITOR"
     bl_region_type = "UI"
     bl_label = "Library Modules"
 
-    attribs_to_hide = ['open_name','parts','prompts','group','g','sg','category_name','library_name']
+    attribs_to_hide = ['open_name','parts','prompts','group','g','sg','category_name','library_name']       
 
     def draw(self, context):
+        wm = context.window_manager.cabinetlib
+        st = context.space_data
+        
         layout = self.layout
-        space = context.space_data
-        layout.menu('MENU_Library_Modules',text="Open Library Module",icon='LATTICE_DATA')
-#         if space.text:
-#             layout.operator('cabinetlib.create_product_class')
-#         col = layout.column(align=True)
-#         box = col.box()
-#         
-#         wm = context.window_manager.cabinetlib
-# #         wm.cabinetlib.draw_library_items(layout,'INSERT')
-#         
-#         box.operator('cabinetlib.load_items_from_inserts')
-#         
-#         col.template_list("LIST_lib_insertlist_text", " ", wm.lib_insert, "items", wm.lib_insert, "index")
-#         if wm.lib_insert.index < len(wm.lib_insert.items) - 1:
-#             item = wm.lib_insert.items[wm.lib_insert.index]
-#             box = col.box()
-#             box.label("Class Name: " + item.class_name)
-#             col = box.column(align=True)
-#             col.label("Available Attributes:")
-#             for attrib in eval("inserts." + item.class_name + "().attributes"):
-#                 col.label(attrib,icon='DOT')
-#             for name, obj in inspect.getmembers(eval("inserts." + item.class_name)):
-#                 if "__" not in name and not callable(obj) and name not in self.attribs_to_hide:
-#                     col.label(name,icon='DOT')
+        box = layout.box()
+        row = box.row(align=True)
+        row.prop_enum(wm, "library_module_tabs", 'LIBRARY_DEVELOPMENT', icon='FILE_TEXT', text="Scripting")
+        row.prop_enum(wm, "library_module_tabs", 'FIND', icon='VIEWZOOM', text="Find")
+        #row.prop_enum(wm, "library_module_tabs", 'PROPERTIES', icon='COLLAPSEMENU', text="Properties")
+        
+        if wm.library_module_tabs == 'LIBRARY_DEVELOPMENT':
+            space = context.space_data
+            row = box.row(align=True)
+            if space.text:
+                row.menu('MENU_Library_Modules',text=space.text.name,icon='FILE_TEXT')
+            else:
+                row.menu('MENU_Library_Modules',text="Open Library Module",icon='FILE_TEXT')
+            row.menu('MENU_Library_Module_options',text="",icon='DOWNARROW_HLT')
+            
+            if wm.module_members:
+                box.template_list("LIST_module_members", 
+                                     " ", 
+                                     wm, 
+                                     "module_members", 
+                                     wm, 
+                                     "module_members_index",
+                                     rows=20)
+                
+            row = box.row()
+            row.operator("text.run_script")
+            
+        if wm.library_module_tabs == 'FIND':            
+            col = box.column(align=True)
+            row = col.row(align=True)
+            row.prop(st, "find_text", text="")
+            row.operator("text.find_set_selected", text="", icon='TEXT')
+            col.operator("text.find")
+    
+            col = box.column(align=True)
+            row = col.row(align=True)
+            row.prop(st, "replace_text", text="")
+            row.operator("text.replace_set_selected", text="", icon='TEXT')
+            col.operator("text.replace")
+            
+            box.prop(st, "use_match_case")       
+
+class MENU_Library_Module_options(Menu):
+    bl_label = "Library Module Options"
+    
+    def draw(self, context):
+        layout = self.layout
+        layout.operator("fd_scripting_tools.save_and_load_library_module",text="Save Library Module As...",icon="SAVE_AS")
+        layout.operator("fd_scripting_tools.read_active_module",text="Read Active Library Module",icon='FILE_REFRESH')
 
 class MENU_Library_Modules(Menu):
     bl_label = "Library Modules"
@@ -64,17 +114,17 @@ class MENU_Library_Modules(Menu):
         dir, filename = os.path.split(__file__)
         script_library_path = fd.get_library_scripts_dir()
         files = os.listdir(script_library_path)
-#         layout.label('Product Libraries',icon='LATTICE_DATA')
         col = layout.column(align=True)
         for file in files:
             filename, ext = os.path.splitext(file)
             if ext == '.py':
-                col.operator('text.open',text=filename.replace("_"," "),icon='LATTICE_DATA').filepath = os.path.join(script_library_path,file)
-        
+                col.operator('fd_scripting_tools.load_library_module',text=filename.replace("_"," "),icon='FILE_TEXT').filepath = os.path.join(script_library_path,file)        
 
 classes = [
            PANEL_Library_Modules,
-           MENU_Library_Modules
+           MENU_Library_Modules,
+           MENU_Library_Module_options,
+           LIST_module_members
            ]
 
 def register():
