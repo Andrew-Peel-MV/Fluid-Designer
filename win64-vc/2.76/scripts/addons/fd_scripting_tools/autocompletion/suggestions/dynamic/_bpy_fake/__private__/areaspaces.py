@@ -1,5 +1,5 @@
-from . space import Space
 from . struct import Struct
+from . space import Space
 from . bpy_struct import bpy_struct
 import mathutils
 

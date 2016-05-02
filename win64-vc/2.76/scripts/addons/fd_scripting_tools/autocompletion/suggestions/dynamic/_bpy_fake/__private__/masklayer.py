@@ -1,5 +1,5 @@
-from . masksplines import MaskSplines
 from . struct import Struct
+from . masksplines import MaskSplines
 from . bpy_struct import bpy_struct
 import mathutils
 

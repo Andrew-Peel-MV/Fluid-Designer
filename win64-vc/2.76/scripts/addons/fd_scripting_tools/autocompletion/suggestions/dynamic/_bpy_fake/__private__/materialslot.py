@@ -1,5 +1,5 @@
-from . material import Material
 from . struct import Struct
+from . material import Material
 from . bpy_struct import bpy_struct
 import mathutils
 

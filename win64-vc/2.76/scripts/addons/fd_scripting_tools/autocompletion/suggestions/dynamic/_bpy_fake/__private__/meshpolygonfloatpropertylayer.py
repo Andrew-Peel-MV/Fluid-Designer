@@ -1,5 +1,5 @@
-from . meshpolygonfloatproperty import MeshPolygonFloatProperty
 from . struct import Struct
+from . meshpolygonfloatproperty import MeshPolygonFloatProperty
 from . bpy_struct import bpy_struct
 import mathutils
 

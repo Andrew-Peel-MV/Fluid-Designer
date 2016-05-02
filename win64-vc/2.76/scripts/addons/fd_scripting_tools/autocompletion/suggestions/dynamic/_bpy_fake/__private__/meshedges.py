@@ -1,5 +1,5 @@
-from . meshedge import MeshEdge
 from . struct import Struct
+from . meshedge import MeshEdge
 from . bpy_struct import bpy_struct
 import mathutils
 

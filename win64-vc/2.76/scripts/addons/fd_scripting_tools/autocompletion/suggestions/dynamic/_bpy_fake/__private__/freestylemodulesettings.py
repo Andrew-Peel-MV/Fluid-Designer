@@ -1,5 +1,5 @@
-from . text import Text
 from . struct import Struct
+from . text import Text
 from . bpy_struct import bpy_struct
 import mathutils
 

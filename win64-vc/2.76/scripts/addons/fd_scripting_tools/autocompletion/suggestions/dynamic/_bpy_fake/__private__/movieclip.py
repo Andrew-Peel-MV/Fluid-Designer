@@ -1,12 +1,12 @@
-from . library import Library
-from . id import ID
-from . animdata import AnimData
 from . movietracking import MovieTracking
-from . greasepencil import GreasePencil
-from . movieclipproxy import MovieClipProxy
-from . colormanagedinputcolorspacesettings import ColorManagedInputColorspaceSettings
 from . imagepreview import ImagePreview
+from . id import ID
+from . greasepencil import GreasePencil
 from . struct import Struct
+from . colormanagedinputcolorspacesettings import ColorManagedInputColorspaceSettings
+from . movieclipproxy import MovieClipProxy
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
-from . softbodysettings import SoftBodySettings
-from . pointcache import PointCache
 from . struct import Struct
+from . pointcache import PointCache
+from . softbodysettings import SoftBodySettings
 from . bpy_struct import bpy_struct
 import mathutils
 

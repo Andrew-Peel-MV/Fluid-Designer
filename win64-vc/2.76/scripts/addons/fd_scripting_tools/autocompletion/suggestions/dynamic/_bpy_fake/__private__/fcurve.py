@@ -1,10 +1,10 @@
 from . driver import Driver
+from . struct import Struct
+from . fcurvekeyframepoints import FCurveKeyframePoints
 from . fcurvemodifiers import FCurveModifiers
+from . anytype import AnyType
 from . actiongroup import ActionGroup
 from . fcurvesample import FCurveSample
-from . anytype import AnyType
-from . fcurvekeyframepoints import FCurveKeyframePoints
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

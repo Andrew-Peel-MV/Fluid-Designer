@@ -1,5 +1,5 @@
-from . particlesystem import ParticleSystem
 from . struct import Struct
+from . particlesystem import ParticleSystem
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,18 +1,17 @@
 from . wm_properties import WM_PROPERTIES
-from . timer import Timer
-from . keyconfigurations import KeyConfigurations
-from . library import Library
-from . id import ID
-from . animdata import AnimData
-from . fd_window_manager import fd_window_manager
-from . window import Window
-from . sketchfabprops import SketchfabProps
 from . uipiemenu import UIPieMenu
-from . event import Event
+from . fd_window_manager import fd_window_manager
 from . uipopupmenu import UIPopupMenu
-from . operator import Operator
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . library import Library
+from . keyconfigurations import KeyConfigurations
+from . animdata import AnimData
+from . event import Event
+from . operator import Operator
+from . window import Window
+from . timer import Timer
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -97,10 +96,6 @@ class WindowManager(bpy_struct):
     def cabinetlib(self):
         '''(WM_PROPERTIES)'''
         return WM_PROPERTIES()
-    @property
-    def sketchfab(self):
-        '''(SketchfabProps)'''
-        return SketchfabProps()
     def copy(self):
         '''Create a copy of this datablock (not supported for all datablocks)
         

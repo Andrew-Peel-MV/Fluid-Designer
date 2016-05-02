@@ -1,12 +1,12 @@
-from . struct import Struct
-from . unifiedpaintsettings import UnifiedPaintSettings
-from . imagepaint import ImagePaint
-from . object import Object
-from . sculpt import Sculpt
-from . meshstatvis import MeshStatVis
-from . vertexpaint import VertexPaint
 from . uvsculpt import UvSculpt
+from . meshstatvis import MeshStatVis
 from . particleedit import ParticleEdit
+from . struct import Struct
+from . imagepaint import ImagePaint
+from . vertexpaint import VertexPaint
+from . unifiedpaintsettings import UnifiedPaintSettings
+from . sculpt import Sculpt
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,8 +1,8 @@
+from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
 from . library import Library
-from . id import ID
 from . animdata import AnimData
-from . imagepreview import ImagePreview
 from . groupobjects import GroupObjects
 from . bpy_struct import bpy_struct
 import mathutils

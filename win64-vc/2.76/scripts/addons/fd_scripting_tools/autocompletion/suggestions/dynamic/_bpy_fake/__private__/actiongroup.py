@@ -1,6 +1,6 @@
-from . fcurve import FCurve
 from . themebonecolorset import ThemeBoneColorSet
 from . struct import Struct
+from . fcurve import FCurve
 from . bpy_struct import bpy_struct
 import mathutils
 

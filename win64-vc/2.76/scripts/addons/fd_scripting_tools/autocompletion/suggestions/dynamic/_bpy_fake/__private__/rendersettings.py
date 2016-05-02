@@ -1,10 +1,10 @@
-from . imageformatsettings import ImageFormatSettings
-from . ffmpegsettings import FFmpegSettings
-from . renderviews import RenderViews
-from . scenerenderview import SceneRenderView
 from . renderlayers import RenderLayers
-from . bakesettings import BakeSettings
 from . struct import Struct
+from . bakesettings import BakeSettings
+from . imageformatsettings import ImageFormatSettings
+from . scenerenderview import SceneRenderView
+from . renderviews import RenderViews
+from . ffmpegsettings import FFmpegSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

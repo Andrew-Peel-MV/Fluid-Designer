@@ -1,5 +1,5 @@
-from . obstacle import Obstacle
 from . struct import Struct
+from . obstacle import Obstacle
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -17,10 +17,10 @@ class Wall(bpy_struct):
         '''(String)'''
         return str()
     @property
-    def obstacles(self):
-        '''(Sequence of Obstacle)'''
-        return (Obstacle(),)
-    @property
     def obstacle_index(self):
         '''(Integer)'''
         return int()
+    @property
+    def obstacles(self):
+        '''(Sequence of Obstacle)'''
+        return (Obstacle(),)

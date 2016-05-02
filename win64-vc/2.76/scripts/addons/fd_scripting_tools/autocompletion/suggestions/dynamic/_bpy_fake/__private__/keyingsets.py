@@ -1,5 +1,5 @@
-from . keyingset import KeyingSet
 from . struct import Struct
+from . keyingset import KeyingSet
 from . bpy_struct import bpy_struct
 import mathutils
 

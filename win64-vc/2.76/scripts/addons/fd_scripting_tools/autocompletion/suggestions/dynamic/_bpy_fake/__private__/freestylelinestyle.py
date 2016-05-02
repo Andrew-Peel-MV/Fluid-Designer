@@ -1,15 +1,15 @@
-from . texture import Texture
-from . linestylegeometrymodifiers import LineStyleGeometryModifiers
-from . nodetree import NodeTree
-from . library import Library
-from . linestylethicknessmodifiers import LineStyleThicknessModifiers
-from . id import ID
-from . linestylecolormodifiers import LineStyleColorModifiers
-from . animdata import AnimData
-from . linestyletextureslots import LineStyleTextureSlots
-from . imagepreview import ImagePreview
 from . linestylealphamodifiers import LineStyleAlphaModifiers
+from . nodetree import NodeTree
+from . texture import Texture
+from . imagepreview import ImagePreview
+from . linestyletextureslots import LineStyleTextureSlots
+from . id import ID
 from . struct import Struct
+from . linestylecolormodifiers import LineStyleColorModifiers
+from . linestylethicknessmodifiers import LineStyleThicknessModifiers
+from . linestylegeometrymodifiers import LineStyleGeometryModifiers
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

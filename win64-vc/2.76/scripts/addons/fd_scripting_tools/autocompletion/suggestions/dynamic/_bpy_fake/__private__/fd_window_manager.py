@@ -13,49 +13,25 @@ class fd_window_manager(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def use_opengl_dimensions(self):
-        '''(Boolean) Use OpenGL Dimensions'''
-        return bool()
-    @property
-    def material_library_path(self):
-        '''(String)'''
-        return str()
-    @property
-    def insert_library_path(self):
-        '''(String)'''
-        return str()
-    @property
-    def project_template_path(self):
-        '''(String)'''
-        return str()
-    @property
     def show_standalone_ui(self):
         '''(Boolean) This shows all of the standalone UI elements. This property
         is only set to False when Fluid Designer is opened from a separate
         application.'''
         return bool()
     @property
-    def world_library_path(self):
+    def object_library_path(self):
         '''(String)'''
         return str()
-    @property
-    def product_library_path(self):
-        '''(String)'''
-        return str()
-    @property
-    def library_module_path(self):
-        '''(String)'''
-        return str()
-    @property
-    def data_from_libs(self):
-        '''(Sequence of blend_file)'''
-        return (blend_file(),)
     @property
     def wall_rotation(self):
         '''(Float) Used to store the walls rotation'''
         return float()
     @property
-    def object_library_path(self):
+    def data_from_libs(self):
+        '''(Sequence of blend_file)'''
+        return (blend_file(),)
+    @property
+    def library_module_path(self):
         '''(String)'''
         return str()
     @property
@@ -63,7 +39,27 @@ class fd_window_manager(bpy_struct):
         '''(String)'''
         return str()
     @property
+    def insert_library_path(self):
+        '''(String)'''
+        return str()
+    @property
     def scene_library_path(self):
+        '''(String)'''
+        return str()
+    @property
+    def product_library_path(self):
+        '''(String)'''
+        return str()
+    @property
+    def project_templates(self):
+        '''(Enum)'''
+        return str()
+    @property
+    def use_opengl_dimensions(self):
+        '''(Boolean) Use OpenGL Dimensions'''
+        return bool()
+    @property
+    def project_template_path(self):
         '''(String)'''
         return str()
     @property
@@ -71,10 +67,14 @@ class fd_window_manager(bpy_struct):
         '''(Integer)'''
         return int()
     @property
-    def project_path(self):
+    def material_library_path(self):
         '''(String)'''
         return str()
     @property
-    def project_templates(self):
-        '''(Enum)'''
+    def world_library_path(self):
+        '''(String)'''
+        return str()
+    @property
+    def project_path(self):
+        '''(String)'''
         return str()

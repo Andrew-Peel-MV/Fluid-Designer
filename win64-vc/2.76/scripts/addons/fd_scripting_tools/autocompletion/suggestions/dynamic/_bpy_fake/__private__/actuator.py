@@ -1,5 +1,5 @@
-from . controller import Controller
 from . struct import Struct
+from . controller import Controller
 from . bpy_struct import bpy_struct
 import mathutils
 

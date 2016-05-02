@@ -1,8 +1,8 @@
 from . brush import Brush
 from . curvemapping import CurveMapping
-from . object import Object
-from . palette import Palette
 from . struct import Struct
+from . palette import Palette
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

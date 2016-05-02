@@ -1,5 +1,5 @@
-from . moviereconstructedcamera import MovieReconstructedCamera
 from . struct import Struct
+from . moviereconstructedcamera import MovieReconstructedCamera
 from . bpy_struct import bpy_struct
 import mathutils
 

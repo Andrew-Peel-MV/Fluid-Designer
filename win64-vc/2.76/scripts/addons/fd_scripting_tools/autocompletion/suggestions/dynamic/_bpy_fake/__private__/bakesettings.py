@@ -1,5 +1,5 @@
-from . imageformatsettings import ImageFormatSettings
 from . struct import Struct
+from . imageformatsettings import ImageFormatSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,9 +1,9 @@
-from . library import Library
-from . id import ID
-from . animdata import AnimData
-from . shapekey import ShapeKey
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . shapekey import ShapeKey
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

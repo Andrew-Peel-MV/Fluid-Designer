@@ -1,13 +1,13 @@
-from . idmaterials import IDMaterials
 from . curvesplines import CurveSplines
-from . object import Object
-from . library import Library
-from . cyclesmeshsettings import CyclesMeshSettings
-from . id import ID
-from . animdata import AnimData
 from . key import Key
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . library import Library
+from . animdata import AnimData
+from . idmaterials import IDMaterials
+from . cyclesmeshsettings import CyclesMeshSettings
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

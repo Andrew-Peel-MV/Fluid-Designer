@@ -1,6 +1,6 @@
-from . particlesystem import ParticleSystem
-from . object import Object
 from . struct import Struct
+from . object import Object
+from . particlesystem import ParticleSystem
 from . bpy_struct import bpy_struct
 import mathutils
 

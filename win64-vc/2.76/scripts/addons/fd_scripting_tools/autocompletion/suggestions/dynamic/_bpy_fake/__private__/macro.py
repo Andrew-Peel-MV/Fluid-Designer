@@ -1,6 +1,6 @@
+from . struct import Struct
 from . context import Context
 from . operatorproperties import OperatorProperties
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

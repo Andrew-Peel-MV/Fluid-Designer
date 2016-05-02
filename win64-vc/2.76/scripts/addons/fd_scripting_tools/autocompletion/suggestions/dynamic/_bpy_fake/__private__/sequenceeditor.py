@@ -1,6 +1,6 @@
 from . sequences import Sequences
-from . sequence import Sequence
 from . struct import Struct
+from . sequence import Sequence
 from . bpy_struct import bpy_struct
 import mathutils
 

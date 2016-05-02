@@ -1,5 +1,5 @@
-from . beziersplinepoint import BezierSplinePoint
 from . struct import Struct
+from . beziersplinepoint import BezierSplinePoint
 from . bpy_struct import bpy_struct
 import mathutils
 

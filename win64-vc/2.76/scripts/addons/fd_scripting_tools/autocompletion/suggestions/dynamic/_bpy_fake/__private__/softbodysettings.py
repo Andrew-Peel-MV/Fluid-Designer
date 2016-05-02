@@ -1,5 +1,5 @@
-from . effectorweights import EffectorWeights
 from . struct import Struct
+from . effectorweights import EffectorWeights
 from . bpy_struct import bpy_struct
 import mathutils
 

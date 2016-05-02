@@ -12,13 +12,13 @@ class Edgepart(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def thickness(self):
-        '''(Float)'''
-        return float()
-    @property
     def mv_pointer_name(self):
         '''(String)'''
         return str()
+    @property
+    def thickness(self):
+        '''(Float)'''
+        return float()
     @property
     def material(self):
         '''(String)'''

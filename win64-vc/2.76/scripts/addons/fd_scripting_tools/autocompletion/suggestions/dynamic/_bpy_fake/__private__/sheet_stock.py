@@ -13,6 +13,26 @@ class Sheet_Stock(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
+    def bottom_material(self):
+        '''(String)'''
+        return str()
+    @property
+    def sizes(self):
+        '''(Sequence of Sheet_Size)'''
+        return (Sheet_Size(),)
+    @property
+    def core_material(self):
+        '''(String)'''
+        return str()
+    @property
+    def size_index(self):
+        '''(Integer)'''
+        return int()
+    @property
+    def top_material(self):
+        '''(String)'''
+        return str()
+    @property
     def thickness(self):
         '''(Float)'''
         return float()
@@ -22,23 +42,3 @@ class Sheet_Stock(bpy_struct):
         
         [NONE, WIDTH, LENGTH]'''
         return str()
-    @property
-    def top_material(self):
-        '''(String)'''
-        return str()
-    @property
-    def sizes(self):
-        '''(Sequence of Sheet_Size)'''
-        return (Sheet_Size(),)
-    @property
-    def bottom_material(self):
-        '''(String)'''
-        return str()
-    @property
-    def core_material(self):
-        '''(String)'''
-        return str()
-    @property
-    def size_index(self):
-        '''(Integer)'''
-        return int()

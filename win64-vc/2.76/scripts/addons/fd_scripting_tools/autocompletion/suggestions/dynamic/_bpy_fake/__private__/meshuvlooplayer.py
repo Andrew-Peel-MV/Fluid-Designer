@@ -1,5 +1,5 @@
-from . meshuvloop import MeshUVLoop
 from . struct import Struct
+from . meshuvloop import MeshUVLoop
 from . bpy_struct import bpy_struct
 import mathutils
 

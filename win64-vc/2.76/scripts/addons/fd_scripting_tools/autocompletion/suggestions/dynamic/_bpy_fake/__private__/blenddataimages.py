@@ -1,5 +1,5 @@
-from . image import Image
 from . struct import Struct
+from . image import Image
 from . bpy_struct import bpy_struct
 import mathutils
 

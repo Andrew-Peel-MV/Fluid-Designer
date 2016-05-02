@@ -1,5 +1,5 @@
-from . keymaps import KeyMaps
 from . struct import Struct
+from . keymaps import KeyMaps
 from . bpy_struct import bpy_struct
 import mathutils
 

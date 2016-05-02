@@ -1,6 +1,6 @@
-from . texture import Texture
-from . particlesystem import ParticleSystem
 from . struct import Struct
+from . particlesystem import ParticleSystem
+from . texture import Texture
 from . bpy_struct import bpy_struct
 import mathutils
 

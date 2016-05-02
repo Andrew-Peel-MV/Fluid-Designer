@@ -1,7 +1,7 @@
-from . context import Context
-from . anytype import AnyType
-from . keyingset import KeyingSet
 from . struct import Struct
+from . context import Context
+from . keyingset import KeyingSet
+from . anytype import AnyType
 from . bpy_struct import bpy_struct
 import mathutils
 

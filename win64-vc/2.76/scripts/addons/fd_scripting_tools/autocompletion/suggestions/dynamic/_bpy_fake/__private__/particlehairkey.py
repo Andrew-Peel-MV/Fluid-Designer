@@ -1,7 +1,7 @@
-from . particlesystemmodifier import ParticleSystemModifier
+from . struct import Struct
 from . object import Object
 from . particle import Particle
-from . struct import Struct
+from . particlesystemmodifier import ParticleSystemModifier
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,7 +1,7 @@
+from . struct import Struct
 from . material import Material
 from . particlesystem import ParticleSystem
 from . colorramp import ColorRamp
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

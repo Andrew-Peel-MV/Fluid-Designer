@@ -1,6 +1,6 @@
-from . texture import Texture
-from . object import Object
 from . struct import Struct
+from . object import Object
+from . texture import Texture
 from . bpy_struct import bpy_struct
 import mathutils
 

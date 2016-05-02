@@ -1,5 +1,5 @@
-from . freestylemodulesettings import FreestyleModuleSettings
 from . struct import Struct
+from . freestylemodulesettings import FreestyleModuleSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

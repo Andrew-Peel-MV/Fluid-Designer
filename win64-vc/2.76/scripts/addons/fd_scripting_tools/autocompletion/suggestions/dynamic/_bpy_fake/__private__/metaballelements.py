@@ -1,5 +1,5 @@
-from . metaelement import MetaElement
 from . struct import Struct
+from . metaelement import MetaElement
 from . bpy_struct import bpy_struct
 import mathutils
 

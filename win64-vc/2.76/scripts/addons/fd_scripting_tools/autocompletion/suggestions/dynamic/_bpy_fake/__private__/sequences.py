@@ -1,8 +1,8 @@
-from . mask import Mask
 from . scene import Scene
 from . sequence import Sequence
-from . movieclip import MovieClip
 from . struct import Struct
+from . movieclip import MovieClip
+from . mask import Mask
 from . bpy_struct import bpy_struct
 import mathutils
 

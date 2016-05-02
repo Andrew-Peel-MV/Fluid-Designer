@@ -1,7 +1,7 @@
-from . particlesystemmodifier import ParticleSystemModifier
-from . particlehairkey import ParticleHairKey
 from . particlekey import ParticleKey
 from . struct import Struct
+from . particlehairkey import ParticleHairKey
+from . particlesystemmodifier import ParticleSystemModifier
 from . bpy_struct import bpy_struct
 import mathutils
 

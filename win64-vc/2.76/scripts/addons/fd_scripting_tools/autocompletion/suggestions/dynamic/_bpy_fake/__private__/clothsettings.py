@@ -1,6 +1,6 @@
+from . struct import Struct
 from . effectorweights import EffectorWeights
 from . shapekey import ShapeKey
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

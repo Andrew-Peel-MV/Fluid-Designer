@@ -1,15 +1,15 @@
-from . library import Library
-from . scene import Scene
-from . id import ID
-from . animdata import AnimData
-from . imagepackedfile import ImagePackedFile
 from . imageuser import ImageUser
 from . stereo3dformat import Stereo3dFormat
-from . renderslots import RenderSlots
 from . packedfile import PackedFile
-from . colormanagedinputcolorspacesettings import ColorManagedInputColorspaceSettings
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . colormanagedinputcolorspacesettings import ColorManagedInputColorspaceSettings
+from . imagepackedfile import ImagePackedFile
+from . scene import Scene
+from . library import Library
+from . animdata import AnimData
+from . renderslots import RenderSlots
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,7 +1,7 @@
-from . colormanagedviewsettings import ColorManagedViewSettings
-from . stereo3dformat import Stereo3dFormat
 from . colormanageddisplaysettings import ColorManagedDisplaySettings
+from . stereo3dformat import Stereo3dFormat
 from . struct import Struct
+from . colormanagedviewsettings import ColorManagedViewSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

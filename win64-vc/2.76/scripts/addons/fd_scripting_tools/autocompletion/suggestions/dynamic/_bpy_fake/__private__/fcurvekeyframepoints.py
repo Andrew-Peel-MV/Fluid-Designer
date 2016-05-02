@@ -1,5 +1,5 @@
-from . keyframe import Keyframe
 from . struct import Struct
+from . keyframe import Keyframe
 from . bpy_struct import bpy_struct
 import mathutils
 

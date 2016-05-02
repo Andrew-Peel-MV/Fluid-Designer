@@ -12,11 +12,15 @@ class Cutpart(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def thickness(self):
-        '''(Float)'''
-        return float()
+    def mv_pointer_name(self):
+        '''(String)'''
+        return str()
     @property
     def bottom(self):
+        '''(String)'''
+        return str()
+    @property
+    def core(self):
         '''(String)'''
         return str()
     @property
@@ -24,10 +28,6 @@ class Cutpart(bpy_struct):
         '''(String)'''
         return str()
     @property
-    def mv_pointer_name(self):
-        '''(String)'''
-        return str()
-    @property
-    def core(self):
-        '''(String)'''
-        return str()
+    def thickness(self):
+        '''(Float)'''
+        return float()

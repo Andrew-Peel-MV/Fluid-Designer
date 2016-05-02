@@ -1,10 +1,10 @@
-from . armaturebones import ArmatureBones
-from . library import Library
-from . id import ID
-from . animdata import AnimData
 from . imagepreview import ImagePreview
-from . armatureeditbones import ArmatureEditBones
+from . id import ID
 from . struct import Struct
+from . armatureeditbones import ArmatureEditBones
+from . library import Library
+from . animdata import AnimData
+from . armaturebones import ArmatureBones
 from . bpy_struct import bpy_struct
 import mathutils
 

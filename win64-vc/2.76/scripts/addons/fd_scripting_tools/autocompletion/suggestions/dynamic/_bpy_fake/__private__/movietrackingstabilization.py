@@ -1,5 +1,5 @@
-from . movietrackingtrack import MovieTrackingTrack
 from . struct import Struct
+from . movietrackingtrack import MovieTrackingTrack
 from . bpy_struct import bpy_struct
 import mathutils
 

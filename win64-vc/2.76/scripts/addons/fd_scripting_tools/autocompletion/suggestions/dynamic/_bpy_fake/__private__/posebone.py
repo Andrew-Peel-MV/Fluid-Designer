@@ -1,10 +1,10 @@
 from . bone import Bone
-from . object import Object
-from . motionpath import MotionPath
 from . bonegroup import BoneGroup
-from . poseboneconstraints import PoseBoneConstraints
-from . posebone import PoseBone
 from . struct import Struct
+from . posebone import PoseBone
+from . poseboneconstraints import PoseBoneConstraints
+from . motionpath import MotionPath
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,7 +1,7 @@
-from . mesh import Mesh
 from . scene import Scene
-from . object import Object
+from . mesh import Mesh
 from . struct import Struct
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . armature import Armature
 from . struct import Struct
+from . armature import Armature
 from . bpy_struct import bpy_struct
 import mathutils
 

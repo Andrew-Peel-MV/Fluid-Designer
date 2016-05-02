@@ -1,41 +1,41 @@
-from . group import Group
-from . object_properties import OBJECT_PROPERTIES
-from . gameobjectsettings import GameObjectSettings
-from . scene import Scene
-from . object_variables import Object_Variables
-from . imageuser import ImageUser
-from . lodlevel import LodLevel
+from . objectconstraints import ObjectConstraints
+from . materialslot import MaterialSlot
+from . imagepreview import ImagePreview
+from . id import ID
 from . greasepencil import GreasePencil
-from . object_props import Object_Props
-from . pose import Pose
-from . softbodysettings import SoftBodySettings
-from . struct import Struct
+from . mesh import Mesh
 from . vertexgroups import VertexGroups
+from . posebone import PoseBone
+from . shapekey import ShapeKey
+from . properties_object_variables import PROPERTIES_Object_Variables
+from . scene import Scene
+from . animdata import AnimData
+from . fd_object import fd_object
+from . cyclesobjectblursettings import CyclesObjectBlurSettings
+from . animviz import AnimViz
+from . action import Action
+from . softbodysettings import SoftBodySettings
+from . motionpath import MotionPath
+from . lodlevel import LodLevel
+from . object import Object
+from . rigidbodyobject import RigidBodyObject
+from . imageuser import ImageUser
+from . object_props import Object_Props
+from . material import Material
+from . pose import Pose
+from . object_properties import OBJECT_PROPERTIES
+from . fieldsettings import FieldSettings
 from . rigidbodyconstraint import RigidBodyConstraint
 from . library import Library
-from . mesh import Mesh
-from . id import ID
-from . objectmodifiers import ObjectModifiers
-from . object_properties import Object_Properties
-from . imagepreview import ImagePreview
-from . materialslot import MaterialSlot
-from . posebone import PoseBone
-from . cyclesvisibilitysettings import CyclesVisibilitySettings
-from . cyclesobjectblursettings import CyclesObjectBlurSettings
-from . action import Action
-from . dupliobject import DupliObject
-from . objectconstraints import ObjectConstraints
-from . object import Object
-from . collisionsettings import CollisionSettings
 from . particlesystems import ParticleSystems
-from . animdata import AnimData
-from . animviz import AnimViz
-from . motionpath import MotionPath
-from . shapekey import ShapeKey
-from . fieldsettings import FieldSettings
-from . rigidbodyobject import RigidBodyObject
-from . fd_object import fd_object
-from . material import Material
+from . dupliobject import DupliObject
+from . gameobjectsettings import GameObjectSettings
+from . struct import Struct
+from . collisionsettings import CollisionSettings
+from . group import Group
+from . objectmodifiers import ObjectModifiers
+from . properties_object_properties import PROPERTIES_Object_Properties
+from . cyclesvisibilitysettings import CyclesVisibilitySettings
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -519,17 +519,13 @@ class Object(bpy_struct):
         '''(OBJECT_PROPERTIES)'''
         return OBJECT_PROPERTIES()
     @property
-    def lm_cbd(self):
-        '''(Object_Properties)'''
-        return Object_Properties()
-    @property
-    def lm_closets(self):
-        '''(Object_Properties)'''
-        return Object_Properties()
+    def lm_cabinet_closet_designer(self):
+        '''(PROPERTIES_Object_Properties)'''
+        return PROPERTIES_Object_Properties()
     @property
     def lm_moldings(self):
-        '''(Object_Variables)'''
-        return Object_Variables()
+        '''(PROPERTIES_Object_Variables)'''
+        return PROPERTIES_Object_Variables()
     @property
     def cycles_visibility(self):
         '''(CyclesVisibilitySettings) Cycles visibility settings'''

@@ -1,5 +1,5 @@
-from . fluidsettings import FluidSettings
 from . struct import Struct
+from . fluidsettings import FluidSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

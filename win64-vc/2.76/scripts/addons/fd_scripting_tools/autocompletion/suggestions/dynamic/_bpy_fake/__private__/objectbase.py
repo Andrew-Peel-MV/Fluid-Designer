@@ -1,6 +1,6 @@
-from . spaceview3d import SpaceView3D
-from . object import Object
 from . struct import Struct
+from . object import Object
+from . spaceview3d import SpaceView3D
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -13,27 +13,15 @@ class Scene_Props(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def wood_floor_material(self):
-        '''(Enum)'''
-        return str()
-    @property
     def room_type(self):
         '''(Enum)
         
         [CUSTOM, SINGLE, LSHAPE, USHAPE, SQUARE]'''
         return str()
     @property
-    def tile_material(self):
-        '''(Enum)'''
-        return str()
-    @property
     def walls(self):
         '''(Sequence of Wall)'''
         return (Wall(),)
-    @property
-    def wall_material(self):
-        '''(Enum)'''
-        return str()
     @property
     def floor_type(self):
         '''(Enum)
@@ -45,6 +33,22 @@ class Scene_Props(bpy_struct):
         '''(Float) Property used to set the scale properly for background images.'''
         return float()
     @property
+    def carpet_material(self):
+        '''(Enum)'''
+        return str()
+    @property
+    def wood_floor_material(self):
+        '''(Enum)'''
+        return str()
+    @property
+    def wall_material(self):
+        '''(Enum)'''
+        return str()
+    @property
+    def tile_material(self):
+        '''(Enum)'''
+        return str()
+    @property
     def wall_index(self):
         '''(Integer)'''
         return int()
@@ -53,8 +57,4 @@ class Scene_Props(bpy_struct):
         '''(Enum)
         
         [TEXTURED]'''
-        return str()
-    @property
-    def carpet_material(self):
-        '''(Enum)'''
         return str()

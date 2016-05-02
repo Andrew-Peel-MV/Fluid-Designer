@@ -1,6 +1,6 @@
+from . struct import Struct
 from . screen import Screen
 from . stereo3ddisplay import Stereo3dDisplay
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

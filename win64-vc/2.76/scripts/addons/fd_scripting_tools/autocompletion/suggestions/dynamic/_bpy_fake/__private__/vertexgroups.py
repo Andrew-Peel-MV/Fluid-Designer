@@ -1,5 +1,5 @@
-from . vertexgroup import VertexGroup
 from . struct import Struct
+from . vertexgroup import VertexGroup
 from . bpy_struct import bpy_struct
 import mathutils
 

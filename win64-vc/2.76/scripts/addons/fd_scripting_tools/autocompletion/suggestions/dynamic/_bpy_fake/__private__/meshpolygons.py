@@ -1,5 +1,5 @@
-from . meshpolygon import MeshPolygon
 from . struct import Struct
+from . meshpolygon import MeshPolygon
 from . bpy_struct import bpy_struct
 import mathutils
 

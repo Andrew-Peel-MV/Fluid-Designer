@@ -1,6 +1,6 @@
-from . themespacegeneric import ThemeSpaceGeneric
 from . themespacelistgeneric import ThemeSpaceListGeneric
 from . struct import Struct
+from . themespacegeneric import ThemeSpaceGeneric
 from . bpy_struct import bpy_struct
 import mathutils
 

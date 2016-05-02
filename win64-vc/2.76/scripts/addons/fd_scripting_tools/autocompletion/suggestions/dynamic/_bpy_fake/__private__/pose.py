@@ -1,8 +1,8 @@
+from . struct import Struct
+from . posebone import PoseBone
 from . bonegroups import BoneGroups
 from . ikparam import IKParam
-from . posebone import PoseBone
 from . animviz import AnimViz
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

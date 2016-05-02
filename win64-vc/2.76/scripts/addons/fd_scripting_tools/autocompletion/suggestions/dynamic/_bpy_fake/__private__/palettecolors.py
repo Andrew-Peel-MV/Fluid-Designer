@@ -1,5 +1,5 @@
-from . palettecolor import PaletteColor
 from . struct import Struct
+from . palettecolor import PaletteColor
 from . bpy_struct import bpy_struct
 import mathutils
 

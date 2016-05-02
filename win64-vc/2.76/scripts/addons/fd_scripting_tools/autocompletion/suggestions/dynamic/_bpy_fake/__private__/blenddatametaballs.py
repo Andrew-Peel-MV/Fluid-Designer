@@ -1,5 +1,5 @@
-from . metaball import MetaBall
 from . struct import Struct
+from . metaball import MetaBall
 from . bpy_struct import bpy_struct
 import mathutils
 

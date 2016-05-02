@@ -1,7 +1,7 @@
-from . smokedomainsettings import SmokeDomainSettings
-from . smokeflowsettings import SmokeFlowSettings
-from . smokecollsettings import SmokeCollSettings
 from . struct import Struct
+from . smokeflowsettings import SmokeFlowSettings
+from . smokedomainsettings import SmokeDomainSettings
+from . smokecollsettings import SmokeCollSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

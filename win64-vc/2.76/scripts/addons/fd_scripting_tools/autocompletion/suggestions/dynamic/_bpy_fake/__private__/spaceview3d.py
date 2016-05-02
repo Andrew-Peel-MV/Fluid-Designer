@@ -1,10 +1,10 @@
-from . object import Object
-from . transformorientation import TransformOrientation
-from . gpufxsettings import GPUFXSettings
-from . backgroundimages import BackgroundImages
 from . spaceview3d import SpaceView3D
-from . regionview3d import RegionView3D
 from . struct import Struct
+from . transformorientation import TransformOrientation
+from . backgroundimages import BackgroundImages
+from . gpufxsettings import GPUFXSettings
+from . object import Object
+from . regionview3d import RegionView3D
 from . bpy_struct import bpy_struct
 import mathutils
 

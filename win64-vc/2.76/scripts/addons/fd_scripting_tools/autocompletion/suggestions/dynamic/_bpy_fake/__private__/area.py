@@ -1,6 +1,6 @@
-from . areaspaces import AreaSpaces
-from . region import Region
 from . struct import Struct
+from . region import Region
+from . areaspaces import AreaSpaces
 from . bpy_struct import bpy_struct
 import mathutils
 

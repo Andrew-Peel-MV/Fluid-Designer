@@ -1,6 +1,6 @@
-from . animvizonionskinning import AnimVizOnionSkinning
-from . animvizmotionpaths import AnimVizMotionPaths
 from . struct import Struct
+from . animvizmotionpaths import AnimVizMotionPaths
+from . animvizonionskinning import AnimVizOnionSkinning
 from . bpy_struct import bpy_struct
 import mathutils
 

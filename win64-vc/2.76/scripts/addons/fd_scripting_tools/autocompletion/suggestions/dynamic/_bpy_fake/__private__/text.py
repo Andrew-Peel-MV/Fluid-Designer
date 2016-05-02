@@ -1,9 +1,9 @@
-from . library import Library
-from . textline import TextLine
-from . id import ID
-from . animdata import AnimData
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . textline import TextLine
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

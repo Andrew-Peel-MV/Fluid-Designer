@@ -1,11 +1,11 @@
-from . idmaterials import IDMaterials
-from . library import Library
-from . cyclesmeshsettings import CyclesMeshSettings
-from . id import ID
-from . animdata import AnimData
-from . metaballelements import MetaBallElements
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . metaballelements import MetaBallElements
+from . library import Library
+from . animdata import AnimData
+from . idmaterials import IDMaterials
+from . cyclesmeshsettings import CyclesMeshSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

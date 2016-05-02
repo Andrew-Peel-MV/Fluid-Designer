@@ -1,7 +1,7 @@
-from . sequence import Sequence
-from . sequenceelement import SequenceElement
-from . sequencemodifiers import SequenceModifiers
 from . struct import Struct
+from . sequenceelement import SequenceElement
+from . sequence import Sequence
+from . sequencemodifiers import SequenceModifiers
 from . bpy_struct import bpy_struct
 import mathutils
 

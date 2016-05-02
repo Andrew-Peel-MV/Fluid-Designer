@@ -1,5 +1,5 @@
-from . struct import Struct
 from . scene import Scene
+from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
-from . masksplinepointuw import MaskSplinePointUW
 from . maskparent import MaskParent
 from . struct import Struct
+from . masksplinepointuw import MaskSplinePointUW
 from . bpy_struct import bpy_struct
 import mathutils
 

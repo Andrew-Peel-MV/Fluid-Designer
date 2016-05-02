@@ -1,5 +1,5 @@
-from . mask import Mask
 from . struct import Struct
+from . mask import Mask
 from . bpy_struct import bpy_struct
 import mathutils
 

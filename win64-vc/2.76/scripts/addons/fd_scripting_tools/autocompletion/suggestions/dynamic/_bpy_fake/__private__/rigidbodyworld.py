@@ -1,8 +1,8 @@
-from . group import Group
-from . pointcache import PointCache
-from . effectorweights import EffectorWeights
-from . object import Object
 from . struct import Struct
+from . pointcache import PointCache
+from . object import Object
+from . group import Group
+from . effectorweights import EffectorWeights
 from . bpy_struct import bpy_struct
 import mathutils
 

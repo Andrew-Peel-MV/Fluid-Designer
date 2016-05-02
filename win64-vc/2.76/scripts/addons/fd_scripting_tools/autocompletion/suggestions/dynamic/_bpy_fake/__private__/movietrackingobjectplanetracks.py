@@ -1,6 +1,6 @@
+from . movietrackingplanetrack import MovieTrackingPlaneTrack
 from . struct import Struct
 from . movietrackingtrack import MovieTrackingTrack
-from . movietrackingplanetrack import MovieTrackingPlaneTrack
 from . bpy_struct import bpy_struct
 import mathutils
 

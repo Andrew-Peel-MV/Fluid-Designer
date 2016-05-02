@@ -12,11 +12,15 @@ class Material_Slot(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def item_name(self):
+    def index(self):
+        '''(Integer)'''
+        return int()
+    @property
+    def library_name(self):
         '''(String)'''
         return str()
     @property
-    def library_name(self):
+    def category_name(self):
         '''(String)'''
         return str()
     @property
@@ -24,10 +28,6 @@ class Material_Slot(bpy_struct):
         '''(String)'''
         return str()
     @property
-    def index(self):
-        '''(Integer)'''
-        return int()
-    @property
-    def category_name(self):
+    def item_name(self):
         '''(String)'''
         return str()

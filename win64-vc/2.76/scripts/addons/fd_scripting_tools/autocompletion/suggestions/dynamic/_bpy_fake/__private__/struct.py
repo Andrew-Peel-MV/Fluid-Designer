@@ -1,7 +1,7 @@
-from . property import Property
 from . function import Function
 from . stringproperty import StringProperty
 from . struct import Struct
+from . property import Property
 from . bpy_struct import bpy_struct
 import mathutils
 

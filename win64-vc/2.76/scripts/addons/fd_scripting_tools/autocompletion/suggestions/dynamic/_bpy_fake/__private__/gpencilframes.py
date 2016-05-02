@@ -1,5 +1,5 @@
-from . gpencilframe import GPencilFrame
 from . struct import Struct
+from . gpencilframe import GPencilFrame
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
 from . boidstate import BoidState
-from . boidrule import BoidRule
 from . struct import Struct
+from . boidrule import BoidRule
 from . bpy_struct import bpy_struct
 import mathutils
 

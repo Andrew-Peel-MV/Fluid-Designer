@@ -1,5 +1,5 @@
-from . meshloopcolorlayer import MeshLoopColorLayer
 from . struct import Struct
+from . meshloopcolorlayer import MeshLoopColorLayer
 from . bpy_struct import bpy_struct
 import mathutils
 

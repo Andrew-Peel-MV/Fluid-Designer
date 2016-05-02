@@ -1,6 +1,6 @@
-from . usersolidlight import UserSolidLight
-from . colorramp import ColorRamp
 from . struct import Struct
+from . colorramp import ColorRamp
+from . usersolidlight import UserSolidLight
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -242,7 +242,7 @@ class UserPreferencesSystem(bpy_struct):
     def compute_device(self):
         '''(Enum) Device to use for computation
         
-        [CPU]'''
+        [CUDA_0]'''
         return str()
     @property
     def opensubdiv_compute_type(self):

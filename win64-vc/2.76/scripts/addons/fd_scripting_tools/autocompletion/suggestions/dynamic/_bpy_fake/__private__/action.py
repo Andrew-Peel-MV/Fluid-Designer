@@ -1,11 +1,11 @@
-from . actionposemarkers import ActionPoseMarkers
-from . library import Library
-from . id import ID
-from . animdata import AnimData
-from . actionfcurves import ActionFCurves
 from . actiongroups import ActionGroups
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . actionposemarkers import ActionPoseMarkers
+from . actionfcurves import ActionFCurves
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . property import Property
 from . struct import Struct
+from . property import Property
 from . bpy_struct import bpy_struct
 import mathutils
 

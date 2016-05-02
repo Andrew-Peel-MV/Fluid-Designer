@@ -1,5 +1,5 @@
-from . themepanelcolors import ThemePanelColors
 from . struct import Struct
+from . themepanelcolors import ThemePanelColors
 from . bpy_struct import bpy_struct
 import mathutils
 

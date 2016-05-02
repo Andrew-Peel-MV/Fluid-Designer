@@ -1,5 +1,5 @@
-from . keymapitem import KeyMapItem
 from . struct import Struct
+from . keymapitem import KeyMapItem
 from . bpy_struct import bpy_struct
 import mathutils
 

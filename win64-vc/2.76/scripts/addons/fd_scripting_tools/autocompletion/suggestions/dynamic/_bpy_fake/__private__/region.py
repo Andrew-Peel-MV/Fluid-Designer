@@ -1,5 +1,5 @@
-from . view2d import View2D
 from . struct import Struct
+from . view2d import View2D
 from . bpy_struct import bpy_struct
 import mathutils
 

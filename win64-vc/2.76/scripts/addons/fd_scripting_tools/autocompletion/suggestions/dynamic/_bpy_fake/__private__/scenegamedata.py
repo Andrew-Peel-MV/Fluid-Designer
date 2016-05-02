@@ -1,6 +1,6 @@
-from . text import Text
 from . scenegamerecastdata import SceneGameRecastData
 from . struct import Struct
+from . text import Text
 from . bpy_struct import bpy_struct
 import mathutils
 

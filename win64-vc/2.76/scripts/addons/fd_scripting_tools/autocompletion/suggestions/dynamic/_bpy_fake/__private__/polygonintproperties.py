@@ -1,5 +1,5 @@
-from . meshpolygonintpropertylayer import MeshPolygonIntPropertyLayer
 from . struct import Struct
+from . meshpolygonintpropertylayer import MeshPolygonIntPropertyLayer
 from . bpy_struct import bpy_struct
 import mathutils
 

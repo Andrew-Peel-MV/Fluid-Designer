@@ -1,10 +1,10 @@
 from . context import Context
+from . operatorproperties import OperatorProperties
+from . uilayout import UILayout
+from . operatoroptions import OperatorOptions
 from . struct import Struct
 from . macro import Macro
 from . event import Event
-from . operatorproperties import OperatorProperties
-from . operatoroptions import OperatorOptions
-from . uilayout import UILayout
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . themefontstyle import ThemeFontStyle
 from . struct import Struct
+from . themefontstyle import ThemeFontStyle
 from . bpy_struct import bpy_struct
 import mathutils
 

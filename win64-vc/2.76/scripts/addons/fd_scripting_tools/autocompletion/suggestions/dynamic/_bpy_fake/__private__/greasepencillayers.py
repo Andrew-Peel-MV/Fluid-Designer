@@ -1,5 +1,5 @@
-from . gpencillayer import GPencilLayer
 from . struct import Struct
+from . gpencillayer import GPencilLayer
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
+from . struct import Struct
 from . actuator import Actuator
 from . sensor import Sensor
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

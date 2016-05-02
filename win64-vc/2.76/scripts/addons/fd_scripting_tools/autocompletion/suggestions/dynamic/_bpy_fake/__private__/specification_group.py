@@ -1,7 +1,7 @@
 from . cutpart import Cutpart
 from . library_pointer import Library_Pointer
-from . edgepart import Edgepart
 from . struct import Struct
+from . edgepart import Edgepart
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -15,14 +15,6 @@ class Specification_Group(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def edgepart_index(self):
-        '''(Integer)'''
-        return int()
-    @property
-    def cutpart_index(self):
-        '''(Integer)'''
-        return int()
-    @property
     def materials(self):
         '''(Sequence of Library_Pointer)'''
         return (Library_Pointer(),)
@@ -34,6 +26,14 @@ class Specification_Group(bpy_struct):
     def cutparts(self):
         '''(Sequence of Cutpart)'''
         return (Cutpart(),)
+    @property
+    def cutpart_index(self):
+        '''(Integer)'''
+        return int()
+    @property
+    def edgepart_index(self):
+        '''(Integer)'''
+        return int()
     @property
     def edgeparts(self):
         '''(Sequence of Edgepart)'''

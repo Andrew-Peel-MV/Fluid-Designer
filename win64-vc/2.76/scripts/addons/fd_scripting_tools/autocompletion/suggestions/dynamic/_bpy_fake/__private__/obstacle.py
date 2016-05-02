@@ -12,10 +12,10 @@ class Obstacle(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def base_point(self):
+    def bp_name(self):
         '''(String)'''
         return str()
     @property
-    def bp_name(self):
+    def base_point(self):
         '''(String)'''
         return str()

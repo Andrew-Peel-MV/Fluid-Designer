@@ -1,5 +1,5 @@
-from . meshtessface import MeshTessFace
 from . struct import Struct
+from . meshtessface import MeshTessFace
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . sequencemodifier import SequenceModifier
 from . struct import Struct
+from . sequencemodifier import SequenceModifier
 from . bpy_struct import bpy_struct
 import mathutils
 

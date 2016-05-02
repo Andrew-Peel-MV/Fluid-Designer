@@ -1,10 +1,10 @@
+from . key import Key
+from . latticepoint import LatticePoint
+from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
 from . library import Library
-from . id import ID
 from . animdata import AnimData
-from . key import Key
-from . imagepreview import ImagePreview
-from . latticepoint import LatticePoint
 from . bpy_struct import bpy_struct
 import mathutils
 

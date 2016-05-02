@@ -1,8 +1,8 @@
-from . context import Context
 from . uilayout import UILayout
-from . node import Node
-from . nodesocket import NodeSocket
 from . struct import Struct
+from . node import Node
+from . context import Context
+from . nodesocket import NodeSocket
 from . bpy_struct import bpy_struct
 import mathutils
 

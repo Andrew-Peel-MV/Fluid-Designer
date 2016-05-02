@@ -1,5 +1,5 @@
-from . linestylealphamodifier import LineStyleAlphaModifier
 from . struct import Struct
+from . linestylealphamodifier import LineStyleAlphaModifier
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
-from . dynamicpaintbrushsettings import DynamicPaintBrushSettings
-from . dynamicpaintcanvassettings import DynamicPaintCanvasSettings
 from . struct import Struct
+from . dynamicpaintcanvassettings import DynamicPaintCanvasSettings
+from . dynamicpaintbrushsettings import DynamicPaintBrushSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

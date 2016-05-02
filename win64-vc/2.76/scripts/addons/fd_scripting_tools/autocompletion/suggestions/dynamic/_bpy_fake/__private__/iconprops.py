@@ -16,14 +16,14 @@ class IconProps(bpy_struct):
         '''(Integer) Drag to scroll icons'''
         return int()
     @property
-    def search(self):
-        '''(String) Search for icons by name'''
-        return str()
+    def console(self):
+        '''(Boolean) Display the Icons in the console header'''
+        return bool()
     @property
     def expand(self):
         '''(Boolean) Expand, to display all icons at once'''
         return bool()
     @property
-    def console(self):
-        '''(Boolean) Display the Icons in the console header'''
-        return bool()
+    def search(self):
+        '''(String) Search for icons by name'''
+        return str()

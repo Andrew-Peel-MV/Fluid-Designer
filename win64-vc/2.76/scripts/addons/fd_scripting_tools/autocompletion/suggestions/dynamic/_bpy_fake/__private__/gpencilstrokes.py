@@ -1,5 +1,5 @@
-from . gpencilstroke import GPencilStroke
 from . struct import Struct
+from . gpencilstroke import GPencilStroke
 from . bpy_struct import bpy_struct
 import mathutils
 

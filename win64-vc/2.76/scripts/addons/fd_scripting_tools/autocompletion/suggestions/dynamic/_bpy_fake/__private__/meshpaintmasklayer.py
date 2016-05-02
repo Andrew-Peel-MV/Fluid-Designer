@@ -1,5 +1,5 @@
-from . meshpaintmaskproperty import MeshPaintMaskProperty
 from . struct import Struct
+from . meshpaintmaskproperty import MeshPaintMaskProperty
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,41 +1,40 @@
-from . timelinemarkers import TimelineMarkers
-from . scene import Scene
-from . movieclip import MovieClip
-from . colormanageddisplaysettings import ColorManagedDisplaySettings
-from . greasepencil import GreasePencil
-from . scenegamedata import SceneGameData
-from . scene_properties import Scene_Properties
-from . struct import Struct
-from . nodetree import NodeTree
-from . colormanagedviewsettings import ColorManagedViewSettings
-from . scene_props import Scene_Props
-from . library import Library
-from . iconprops import IconProps
-from . scene_variables import Scene_Variables
-from . id import ID
-from . sequenceeditor import SequenceEditor
-from . fd_scene import fd_scene
-from . displaysafeareas import DisplaySafeAreas
-from . world import World
 from . imagepreview import ImagePreview
-from . transformorientation import TransformOrientation
-from . keyingsets import KeyingSets
-from . rendersettings import RenderSettings
-from . addondevelopmentsceneproperties import AddonDevelopmentSceneProperties
-from . scene_properties import SCENE_PROPERTIES
-from . rigidbodyworld import RigidBodyWorld
-from . object import Object
-from . animdata import AnimData
-from . keyingsetsall import KeyingSetsAll
-from . scenebases import SceneBases
 from . sceneobjects import SceneObjects
-from . colormanagedsequencercolorspacesettings import ColorManagedSequencerColorspaceSettings
-from . global_variables import Global_Variables
-from . cyclescurverendersettings import CyclesCurveRenderSettings
-from . unitsettings import UnitSettings
-from . toolsettings import ToolSettings
+from . greasepencil import GreasePencil
+from . id import ID
+from . iconprops import IconProps
+from . displaysafeareas import DisplaySafeAreas
+from . scene import Scene
+from . keyingsets import KeyingSets
+from . animdata import AnimData
+from . scenebases import SceneBases
+from . scene_props import Scene_Props
+from . rigidbodyworld import RigidBodyWorld
+from . nodetree import NodeTree
+from . sequenceeditor import SequenceEditor
+from . rendersettings import RenderSettings
+from . colormanageddisplaysettings import ColorManagedDisplaySettings
+from . properties_scene_variables import PROPERTIES_Scene_Variables
 from . depsgraph import Depsgraph
+from . object import Object
 from . cyclesrendersettings import CyclesRenderSettings
+from . properties_scene_properties import PROPERTIES_Scene_Properties
+from . fd_scene import fd_scene
+from . scene_variables import Scene_Variables
+from . unitsettings import UnitSettings
+from . scene_properties import SCENE_PROPERTIES
+from . toolsettings import ToolSettings
+from . scenegamedata import SceneGameData
+from . cyclescurverendersettings import CyclesCurveRenderSettings
+from . library import Library
+from . colormanagedviewsettings import ColorManagedViewSettings
+from . timelinemarkers import TimelineMarkers
+from . movieclip import MovieClip
+from . keyingsetsall import KeyingSetsAll
+from . struct import Struct
+from . transformorientation import TransformOrientation
+from . colormanagedsequencercolorspacesettings import ColorManagedSequencerColorspaceSettings
+from . world import World
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -320,60 +319,48 @@ class Scene(bpy_struct):
         return SCENE_PROPERTIES()
     @property
     def lm_face_frame_cabients(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_frameless_cabinets(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
+    @property
+    def lm_cabinet_closet_designer(self):
+        '''(PROPERTIES_Scene_Properties)'''
+        return PROPERTIES_Scene_Properties()
     @property
     def lm_cabinet_doors(self):
         '''(Scene_Variables)'''
         return Scene_Variables()
     @property
     def lm_carcass(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
-    @property
-    def lm_cbd(self):
-        '''(Global_Variables)'''
-        return Global_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_closets(self):
-        '''(Scene_Properties)'''
-        return Scene_Properties()
+        '''(PROPERTIES_Scene_Properties)'''
+        return PROPERTIES_Scene_Properties()
     @property
     def lm_columns(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
-    @property
-    def angled_columns(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
-    @property
-    def lm_entry_doors(self):
-        '''(Global_Variables)'''
-        return Global_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_exteriors(self):
-        '''(Global_Variables)'''
-        return Global_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_interiors(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_moldings(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def lm_pulls(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
-    @property
-    def lm_windows(self):
-        '''(Scene_Variables)'''
-        return Scene_Variables()
+        '''(PROPERTIES_Scene_Variables)'''
+        return PROPERTIES_Scene_Variables()
     @property
     def cycles(self):
         '''(CyclesRenderSettings) Cycles render settings'''
@@ -390,10 +377,6 @@ class Scene(bpy_struct):
     def fd_roombuilder(self):
         '''(Scene_Props)'''
         return Scene_Props()
-    @property
-    def addon_development(self):
-        '''(AddonDevelopmentSceneProperties)'''
-        return AddonDevelopmentSceneProperties()
     def copy(self):
         '''Create a copy of this datablock (not supported for all datablocks)
         

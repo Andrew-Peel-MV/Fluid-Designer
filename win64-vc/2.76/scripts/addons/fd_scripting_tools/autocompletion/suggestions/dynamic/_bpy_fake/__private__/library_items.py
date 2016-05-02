@@ -12,10 +12,10 @@ class library_items(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def is_selected(self):
-        '''(Boolean)'''
-        return bool()
-    @property
     def name(self):
         '''(String)'''
         return str()
+    @property
+    def is_selected(self):
+        '''(Boolean)'''
+        return bool()

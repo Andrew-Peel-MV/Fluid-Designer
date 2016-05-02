@@ -1,7 +1,7 @@
 from . keymap import KeyMap
+from . struct import Struct
 from . keymapitems import KeyMapItems
 from . keymapitem import KeyMapItem
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

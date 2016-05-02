@@ -1,5 +1,5 @@
-from . freestylelineset import FreestyleLineSet
 from . struct import Struct
+from . freestylelineset import FreestyleLineSet
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . walknavigation import WalkNavigation
 from . struct import Struct
+from . walknavigation import WalkNavigation
 from . bpy_struct import bpy_struct
 import mathutils
 

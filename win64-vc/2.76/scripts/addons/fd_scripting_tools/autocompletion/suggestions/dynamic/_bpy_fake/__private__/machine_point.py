@@ -13,10 +13,10 @@ class Machine_Point(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def machine_token_index(self):
-        '''(Integer)'''
-        return int()
-    @property
     def machine_tokens(self):
         '''(Sequence of Machine_Token) Collection of machine tokens'''
         return (Machine_Token(),)
+    @property
+    def machine_token_index(self):
+        '''(Integer)'''
+        return int()

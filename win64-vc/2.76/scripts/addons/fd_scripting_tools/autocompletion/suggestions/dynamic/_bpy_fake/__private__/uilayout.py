@@ -1,21 +1,21 @@
-from . struct import Struct
-from . textureslot import TextureSlot
-from . imageformatsettings import ImageFormatSettings
-from . nodetree import NodeTree
-from . keymapitem import KeyMapItem
 from . movieclipuser import MovieClipUser
-from . nodesocket import NodeSocket
-from . id import ID
+from . textureslot import TextureSlot
 from . imageuser import ImageUser
-from . modifier import Modifier
-from . node import Node
-from . image import Image
 from . stereo3dformat import Stereo3dFormat
-from . anytype import AnyType
 from . movietrackingtrack import MovieTrackingTrack
-from . constraint import Constraint
+from . nodetree import NodeTree
 from . operatorproperties import OperatorProperties
+from . node import Node
 from . uilayout import UILayout
+from . id import ID
+from . struct import Struct
+from . imageformatsettings import ImageFormatSettings
+from . image import Image
+from . anytype import AnyType
+from . nodesocket import NodeSocket
+from . keymapitem import KeyMapItem
+from . constraint import Constraint
+from . modifier import Modifier
 from . bpy_struct import bpy_struct
 import mathutils
 

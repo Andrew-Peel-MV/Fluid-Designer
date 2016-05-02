@@ -1,5 +1,5 @@
-from . meshvertexintproperty import MeshVertexIntProperty
 from . struct import Struct
+from . meshvertexintproperty import MeshVertexIntProperty
 from . bpy_struct import bpy_struct
 import mathutils
 

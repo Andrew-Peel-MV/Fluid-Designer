@@ -1,5 +1,5 @@
-from . struct import Struct
 from . meshvertexfloatpropertylayer import MeshVertexFloatPropertyLayer
+from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

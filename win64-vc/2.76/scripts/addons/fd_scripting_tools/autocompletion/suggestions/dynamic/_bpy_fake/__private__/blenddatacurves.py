@@ -1,5 +1,5 @@
-from . curve import Curve
 from . struct import Struct
+from . curve import Curve
 from . bpy_struct import bpy_struct
 import mathutils
 

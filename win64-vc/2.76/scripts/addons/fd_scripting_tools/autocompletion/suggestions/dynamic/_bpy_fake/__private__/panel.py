@@ -1,6 +1,6 @@
 from . uilayout import UILayout
-from . context import Context
 from . struct import Struct
+from . context import Context
 from . bpy_struct import bpy_struct
 import mathutils
 

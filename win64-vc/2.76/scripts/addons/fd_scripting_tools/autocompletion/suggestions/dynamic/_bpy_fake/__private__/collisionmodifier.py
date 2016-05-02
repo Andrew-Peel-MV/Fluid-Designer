@@ -1,5 +1,5 @@
-from . collisionsettings import CollisionSettings
 from . struct import Struct
+from . collisionsettings import CollisionSettings
 from . bpy_struct import bpy_struct
 import mathutils
 

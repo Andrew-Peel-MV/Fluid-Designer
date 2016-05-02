@@ -2,7 +2,7 @@ from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 
-class AddonDevelopmentSceneProperties(bpy_struct):
+class List_Module_Members(bpy_struct):
     @property
     def rna_type(self):
         '''(Struct) RNA type definition'''
@@ -12,6 +12,6 @@ class AddonDevelopmentSceneProperties(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def addon_name(self):
-        '''(String) Name of the currently selected addon'''
-        return str()
+    def index(self):
+        '''(Integer)'''
+        return int()

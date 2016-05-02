@@ -1,6 +1,6 @@
+from . struct import Struct
 from . gpencilframes import GPencilFrames
 from . gpencilframe import GPencilFrame
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

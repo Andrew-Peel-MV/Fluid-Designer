@@ -1,5 +1,5 @@
-from . meshcolor import MeshColor
 from . struct import Struct
+from . meshcolor import MeshColor
 from . bpy_struct import bpy_struct
 import mathutils
 

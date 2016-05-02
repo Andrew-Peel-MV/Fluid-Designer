@@ -1,5 +1,5 @@
-from . id import ID
 from . keyingsetpath import KeyingSetPath
+from . id import ID
 from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils

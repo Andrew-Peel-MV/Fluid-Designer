@@ -1,8 +1,8 @@
-from . imageuser import ImageUser
-from . image import Image
-from . movieclip import MovieClip
 from . movieclipuser import MovieClipUser
+from . imageuser import ImageUser
 from . struct import Struct
+from . movieclip import MovieClip
+from . image import Image
 from . bpy_struct import bpy_struct
 import mathutils
 

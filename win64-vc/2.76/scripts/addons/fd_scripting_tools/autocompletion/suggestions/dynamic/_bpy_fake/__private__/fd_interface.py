@@ -12,32 +12,19 @@ class fd_interface(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def use_default_blender_interface(self):
-        '''(Boolean) Show Default Blender interface'''
-        return bool()
-    @property
-    def group_driver_tabs(self):
-        '''(Enum)
-        
-        [LOC_X, LOC_Y, LOC_Z, ROT_X, ROT_Y, ROT_Z, DIM_X, DIM_Y, DIM_Z,
-        PROMPTS]'''
-        return str()
-    @property
-    def interface_group_tabs(self):
-        '''(Enum)
-        
-        [INFO, SETTINGS, PROMPTS, OBJECTS, DRIVERS]'''
-        return str()
-    @property
     def show_debug_tools(self):
         '''(Boolean) Show Debug Tools'''
         return bool()
     @property
-    def library_tabs(self):
+    def render_type_tabs(self):
         '''(Enum)
         
-        [SCENE, PRODUCT, INSERT, ASSEMBLY, OBJECT, MATERIAL, WORLD]'''
+        [PRR, NPR]'''
         return str()
+    @property
+    def use_default_blender_interface(self):
+        '''(Boolean) Show Default Blender interface'''
+        return bool()
     @property
     def interface_object_tabs(self):
         '''(Enum)
@@ -46,14 +33,27 @@ class fd_interface(bpy_struct):
         TEXTDATA, EMPTYDATA, LIGHTDATA, CAMERADATA, DRIVERS, TOKENS]'''
         return str()
     @property
+    def library_tabs(self):
+        '''(Enum)
+        
+        [SCENE, PRODUCT, INSERT, ASSEMBLY, OBJECT, MATERIAL, WORLD]'''
+        return str()
+    @property
+    def group_driver_tabs(self):
+        '''(Enum)
+        
+        [LOC_X, LOC_Y, LOC_Z, ROT_X, ROT_Y, ROT_Z, DIM_X, DIM_Y, DIM_Z,
+        PROMPTS]'''
+        return str()
+    @property
     def group_tabs(self):
         '''(Enum) Group Tabs
         
         [INFO, SETTINGS, PROMPTS, OBJECTS, DRIVERS]'''
         return str()
     @property
-    def render_type_tabs(self):
+    def interface_group_tabs(self):
         '''(Enum)
         
-        [PRR, NPR]'''
+        [INFO, SETTINGS, PROMPTS, OBJECTS, DRIVERS]'''
         return str()

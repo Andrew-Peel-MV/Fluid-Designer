@@ -1,13 +1,13 @@
-from . pointcache import PointCache
-from . object import Object
-from . scene import Scene
-from . particletarget import ParticleTarget
-from . particle import Particle
 from . particlesystemmodifier import ParticleSystemModifier
-from . childparticle import ChildParticle
-from . clothmodifier import ClothModifier
 from . particlesettings import ParticleSettings
 from . struct import Struct
+from . particle import Particle
+from . childparticle import ChildParticle
+from . scene import Scene
+from . object import Object
+from . pointcache import PointCache
+from . particletarget import ParticleTarget
+from . clothmodifier import ClothModifier
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,7 +1,7 @@
-from . animdatadrivers import AnimDataDrivers
-from . nlatracks import NlaTracks
 from . action import Action
 from . struct import Struct
+from . animdatadrivers import AnimDataDrivers
+from . nlatracks import NlaTracks
 from . bpy_struct import bpy_struct
 import mathutils
 

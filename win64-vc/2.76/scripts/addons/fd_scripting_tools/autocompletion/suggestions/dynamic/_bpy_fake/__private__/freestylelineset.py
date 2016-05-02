@@ -1,6 +1,6 @@
+from . struct import Struct
 from . group import Group
 from . freestylelinestyle import FreestyleLineStyle
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -12,7 +12,7 @@ class Project_Property(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def value(self):
+    def global_variable_name(self):
         '''(String)'''
         return str()
     @property
@@ -20,10 +20,10 @@ class Project_Property(bpy_struct):
         '''(String)'''
         return str()
     @property
-    def global_variable_name(self):
+    def specification_group_name(self):
         '''(String)'''
         return str()
     @property
-    def specification_group_name(self):
+    def value(self):
         '''(String)'''
         return str()

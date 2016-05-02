@@ -1,5 +1,5 @@
-from . meshuvlooplayer import MeshUVLoopLayer
 from . struct import Struct
+from . meshuvlooplayer import MeshUVLoopLayer
 from . bpy_struct import bpy_struct
 import mathutils
 

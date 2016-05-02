@@ -1,5 +1,5 @@
-from . movieclip import MovieClip
 from . struct import Struct
+from . movieclip import MovieClip
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . lattice import Lattice
 from . struct import Struct
+from . lattice import Lattice
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,6 +1,6 @@
+from . struct import Struct
 from . nodelink import NodeLink
 from . nodesocket import NodeSocket
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

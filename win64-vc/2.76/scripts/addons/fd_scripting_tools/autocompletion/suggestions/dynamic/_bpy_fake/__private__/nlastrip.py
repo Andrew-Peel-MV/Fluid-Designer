@@ -1,8 +1,8 @@
 from . nlastrip import NlaStrip
-from . nlastripfcurves import NlaStripFCurves
 from . action import Action
-from . fmodifier import FModifier
 from . struct import Struct
+from . fmodifier import FModifier
+from . nlastripfcurves import NlaStripFCurves
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . struct import Struct
 from . masksplinepoint import MaskSplinePoint
+from . struct import Struct
 from . maskspline import MaskSpline
 from . bpy_struct import bpy_struct
 import mathutils

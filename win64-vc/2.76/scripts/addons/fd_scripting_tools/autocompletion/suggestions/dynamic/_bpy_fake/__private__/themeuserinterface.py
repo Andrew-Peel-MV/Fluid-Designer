@@ -1,6 +1,6 @@
-from . themewidgetstatecolors import ThemeWidgetStateColors
 from . themewidgetcolors import ThemeWidgetColors
 from . struct import Struct
+from . themewidgetstatecolors import ThemeWidgetStateColors
 from . bpy_struct import bpy_struct
 import mathutils
 

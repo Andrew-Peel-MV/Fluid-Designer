@@ -18,12 +18,6 @@ class fd_tab(bpy_struct):
         [VISIBLE, HIDDEN, CALCULATOR]'''
         return str()
     @property
-    def calculator_type(self):
-        '''(Enum)
-        
-        [XDIM, YDIM, ZDIM]'''
-        return str()
-    @property
     def index(self):
         '''(Integer)'''
         return int()
@@ -31,3 +25,9 @@ class fd_tab(bpy_struct):
     def calculator_deduction(self):
         '''(Float)'''
         return float()
+    @property
+    def calculator_type(self):
+        '''(Enum)
+        
+        [XDIM, YDIM, ZDIM]'''
+        return str()

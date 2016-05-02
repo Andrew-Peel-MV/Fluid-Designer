@@ -12,23 +12,21 @@ class Library_Pointer(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def item_name(self):
-        '''(String)'''
+    def type(self):
+        '''(Enum)
+        
+        [NONE, WIDTH, LENGTH]'''
         return str()
     @property
     def index(self):
         '''(Integer)'''
         return int()
     @property
-    def category_name(self):
+    def library_name(self):
         '''(String)'''
         return str()
     @property
-    def assign_material(self):
-        '''(Boolean)'''
-        return bool()
-    @property
-    def library_name(self):
+    def category_name(self):
         '''(String)'''
         return str()
     @property
@@ -36,8 +34,10 @@ class Library_Pointer(bpy_struct):
         '''(Float)'''
         return float()
     @property
-    def type(self):
-        '''(Enum)
-        
-        [NONE, WIDTH, LENGTH]'''
+    def assign_material(self):
+        '''(Boolean)'''
+        return bool()
+    @property
+    def item_name(self):
+        '''(String)'''
         return str()

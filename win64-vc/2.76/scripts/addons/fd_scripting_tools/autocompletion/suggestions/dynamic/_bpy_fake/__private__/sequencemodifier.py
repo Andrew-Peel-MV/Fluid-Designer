@@ -1,6 +1,6 @@
-from . mask import Mask
-from . sequence import Sequence
 from . struct import Struct
+from . sequence import Sequence
+from . mask import Mask
 from . bpy_struct import bpy_struct
 import mathutils
 

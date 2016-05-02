@@ -1,8 +1,8 @@
+from . clothsolverresult import ClothSolverResult
+from . struct import Struct
 from . clothsettings import ClothSettings
 from . pointcache import PointCache
-from . clothsolverresult import ClothSolverResult
 from . clothcollisionsettings import ClothCollisionSettings
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

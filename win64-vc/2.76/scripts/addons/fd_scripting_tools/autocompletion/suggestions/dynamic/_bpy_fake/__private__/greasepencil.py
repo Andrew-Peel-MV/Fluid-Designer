@@ -1,9 +1,9 @@
-from . library import Library
-from . id import ID
-from . animdata import AnimData
-from . greasepencillayers import GreasePencilLayers
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . library import Library
+from . greasepencillayers import GreasePencilLayers
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

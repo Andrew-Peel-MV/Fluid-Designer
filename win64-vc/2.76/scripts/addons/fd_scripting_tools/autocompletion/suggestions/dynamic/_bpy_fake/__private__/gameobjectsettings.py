@@ -1,9 +1,9 @@
-from . gameproperty import GameProperty
-from . gamesoftbodysettings import GameSoftBodySettings
 from . sensor import Sensor
-from . controller import Controller
-from . actuator import Actuator
+from . gameproperty import GameProperty
 from . struct import Struct
+from . controller import Controller
+from . gamesoftbodysettings import GameSoftBodySettings
+from . actuator import Actuator
 from . bpy_struct import bpy_struct
 import mathutils
 

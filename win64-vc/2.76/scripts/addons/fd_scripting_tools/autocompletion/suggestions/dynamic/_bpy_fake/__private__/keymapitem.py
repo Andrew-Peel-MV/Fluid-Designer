@@ -1,6 +1,6 @@
+from . struct import Struct
 from . keymapitem import KeyMapItem
 from . operatorproperties import OperatorProperties
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

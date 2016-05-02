@@ -1,5 +1,5 @@
-from . struct import Struct
 from . bonegroup import BoneGroup
+from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . meshtexturefacelayer import MeshTextureFaceLayer
 from . struct import Struct
+from . meshtexturefacelayer import MeshTextureFaceLayer
 from . bpy_struct import bpy_struct
 import mathutils
 

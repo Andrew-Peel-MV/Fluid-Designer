@@ -1,5 +1,5 @@
-from . greasepencil import GreasePencil
 from . movietrackingmarkers import MovieTrackingMarkers
+from . greasepencil import GreasePencil
 from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils

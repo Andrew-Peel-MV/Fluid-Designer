@@ -1,5 +1,5 @@
-from . list_library_item import List_Library_Item
 from . struct import Struct
+from . list_library_item import List_Library_Item
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -13,6 +13,10 @@ class List_Library(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
+    def index(self):
+        '''(Integer)'''
+        return int()
+    @property
     def items(self):
         '''(Sequence of List_Library_Item)'''
         return (List_Library_Item(),)
@@ -20,7 +24,3 @@ class List_Library(bpy_struct):
     def module_name(self):
         '''(String)'''
         return str()
-    @property
-    def index(self):
-        '''(Integer)'''
-        return int()

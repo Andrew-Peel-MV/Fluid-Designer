@@ -1,17 +1,17 @@
+from . paintcurve import PaintCurve
 from . texture import Texture
 from . brushcapabilities import BrushCapabilities
-from . imapainttoolcapabilities import ImapaintToolCapabilities
-from . library import Library
-from . id import ID
-from . colorramp import ColorRamp
-from . animdata import AnimData
-from . paintcurve import PaintCurve
-from . sculpttoolcapabilities import SculptToolCapabilities
-from . brushtextureslot import BrushTextureSlot
-from . image import Image
-from . curvemapping import CurveMapping
 from . imagepreview import ImagePreview
+from . curvemapping import CurveMapping
+from . brushtextureslot import BrushTextureSlot
 from . struct import Struct
+from . sculpttoolcapabilities import SculptToolCapabilities
+from . id import ID
+from . library import Library
+from . image import Image
+from . animdata import AnimData
+from . colorramp import ColorRamp
+from . imapainttoolcapabilities import ImapaintToolCapabilities
 from . bpy_struct import bpy_struct
 import mathutils
 

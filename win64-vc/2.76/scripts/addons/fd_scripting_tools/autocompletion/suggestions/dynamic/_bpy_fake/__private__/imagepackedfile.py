@@ -1,5 +1,5 @@
-from . packedfile import PackedFile
 from . struct import Struct
+from . packedfile import PackedFile
 from . bpy_struct import bpy_struct
 import mathutils
 

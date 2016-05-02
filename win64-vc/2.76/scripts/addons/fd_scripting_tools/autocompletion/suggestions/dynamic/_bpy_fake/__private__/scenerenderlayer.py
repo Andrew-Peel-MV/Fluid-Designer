@@ -1,7 +1,7 @@
-from . material import Material
-from . group import Group
-from . freestylesettings import FreestyleSettings
 from . struct import Struct
+from . material import Material
+from . freestylesettings import FreestyleSettings
+from . group import Group
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . texture import Texture
 from . struct import Struct
+from . texture import Texture
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -12,19 +12,7 @@ class Sheet_Size(bpy_struct):
         '''(String) Unique name used in the code and scripting'''
         return str()
     @property
-    def leading_width_trim(self):
-        '''(Float)'''
-        return float()
-    @property
-    def trailing_width_trim(self):
-        '''(Float)'''
-        return float()
-    @property
-    def length(self):
-        '''(Float)'''
-        return float()
-    @property
-    def trailing_length_trim(self):
+    def leading_length_trim(self):
         '''(Float)'''
         return float()
     @property
@@ -32,10 +20,22 @@ class Sheet_Size(bpy_struct):
         '''(Float)'''
         return float()
     @property
+    def length(self):
+        '''(Float)'''
+        return float()
+    @property
+    def leading_width_trim(self):
+        '''(Float)'''
+        return float()
+    @property
     def comment(self):
         '''(String)'''
         return str()
     @property
-    def leading_length_trim(self):
+    def trailing_length_trim(self):
+        '''(Float)'''
+        return float()
+    @property
+    def trailing_width_trim(self):
         '''(Float)'''
         return float()

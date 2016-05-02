@@ -1,10 +1,10 @@
-from . library import Library
-from . scene import Scene
-from . id import ID
-from . animdata import AnimData
-from . area import Area
 from . imagepreview import ImagePreview
+from . id import ID
+from . area import Area
 from . struct import Struct
+from . scene import Scene
+from . library import Library
+from . animdata import AnimData
 from . bpy_struct import bpy_struct
 import mathutils
 

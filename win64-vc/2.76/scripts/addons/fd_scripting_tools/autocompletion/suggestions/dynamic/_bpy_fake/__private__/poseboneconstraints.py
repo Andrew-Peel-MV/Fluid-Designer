@@ -1,5 +1,5 @@
-from . constraint import Constraint
 from . struct import Struct
+from . constraint import Constraint
 from . bpy_struct import bpy_struct
 import mathutils
 

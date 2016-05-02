@@ -1,13 +1,13 @@
-from . userpreferencessystem import UserPreferencesSystem
-from . themestyle import ThemeStyle
-from . userpreferencesview import UserPreferencesView
-from . addons import Addons
-from . userpreferencesedit import UserPreferencesEdit
-from . userpreferencesfilepaths import UserPreferencesFilePaths
 from . theme import Theme
-from . pathcomparecollection import PathCompareCollection
+from . themestyle import ThemeStyle
 from . userpreferencesinput import UserPreferencesInput
+from . addons import Addons
 from . struct import Struct
+from . userpreferencesfilepaths import UserPreferencesFilePaths
+from . userpreferencesedit import UserPreferencesEdit
+from . userpreferencesview import UserPreferencesView
+from . userpreferencessystem import UserPreferencesSystem
+from . pathcomparecollection import PathCompareCollection
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,12 +1,12 @@
-from . texture import Texture
 from . nodetree import NodeTree
+from . texture import Texture
+from . imagepreview import ImagePreview
+from . id import ID
+from . struct import Struct
 from . cycleslampsettings import CyclesLampSettings
 from . library import Library
-from . id import ID
 from . animdata import AnimData
 from . lamptextureslots import LampTextureSlots
-from . imagepreview import ImagePreview
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

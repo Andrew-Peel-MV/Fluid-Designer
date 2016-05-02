@@ -1,5 +1,5 @@
-from . group import Group
 from . struct import Struct
+from . group import Group
 from . bpy_struct import bpy_struct
 import mathutils
 

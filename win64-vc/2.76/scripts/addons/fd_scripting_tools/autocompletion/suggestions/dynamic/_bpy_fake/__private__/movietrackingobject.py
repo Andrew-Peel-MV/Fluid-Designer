@@ -1,7 +1,7 @@
+from . struct import Struct
+from . movietrackingobjectplanetracks import MovieTrackingObjectPlaneTracks
 from . movietrackingreconstruction import MovieTrackingReconstruction
 from . movietrackingobjecttracks import MovieTrackingObjectTracks
-from . movietrackingobjectplanetracks import MovieTrackingObjectPlaneTracks
-from . struct import Struct
 from . bpy_struct import bpy_struct
 import mathutils
 

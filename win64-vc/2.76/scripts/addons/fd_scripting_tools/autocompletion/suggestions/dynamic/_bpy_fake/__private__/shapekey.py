@@ -1,6 +1,6 @@
-from . unknowntype import UnknownType
-from . shapekey import ShapeKey
 from . struct import Struct
+from . shapekey import ShapeKey
+from . unknowntype import UnknownType
 from . bpy_struct import bpy_struct
 import mathutils
 

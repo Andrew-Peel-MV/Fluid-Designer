@@ -1,5 +1,5 @@
-from . splinepoint import SplinePoint
 from . struct import Struct
+from . splinepoint import SplinePoint
 from . bpy_struct import bpy_struct
 import mathutils
 

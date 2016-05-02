@@ -1,13 +1,13 @@
-from . object import Object
-from . gpudofsettings import GPUDOFSettings
-from . library import Library
-from . camerastereodata import CameraStereoData
 from . cyclescamerasettings import CyclesCameraSettings
-from . scene import Scene
-from . id import ID
-from . animdata import AnimData
+from . camerastereodata import CameraStereoData
 from . imagepreview import ImagePreview
+from . id import ID
 from . struct import Struct
+from . gpudofsettings import GPUDOFSettings
+from . scene import Scene
+from . library import Library
+from . animdata import AnimData
+from . object import Object
 from . bpy_struct import bpy_struct
 import mathutils
 

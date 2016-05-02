@@ -1,5 +1,5 @@
-from . meshtexturepoly import MeshTexturePoly
 from . struct import Struct
+from . meshtexturepoly import MeshTexturePoly
 from . bpy_struct import bpy_struct
 import mathutils
 

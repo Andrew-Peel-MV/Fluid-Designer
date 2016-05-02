@@ -1,6 +1,6 @@
-from . themepanelcolors import ThemePanelColors
 from . themegradientcolors import ThemeGradientColors
 from . struct import Struct
+from . themepanelcolors import ThemePanelColors
 from . bpy_struct import bpy_struct
 import mathutils
 

@@ -1,5 +1,5 @@
-from . curvemappoints import CurveMapPoints
 from . struct import Struct
+from . curvemappoints import CurveMapPoints
 from . bpy_struct import bpy_struct
 import mathutils
 

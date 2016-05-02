@@ -1,6 +1,6 @@
-from . fd_tab import fd_tab
-from . mvprompt import mvPrompt
 from . struct import Struct
+from . mvprompt import mvPrompt
+from . fd_tab import fd_tab
 from . bpy_struct import bpy_struct
 import mathutils
 
@@ -18,13 +18,13 @@ class mvPromptPage(bpy_struct):
         '''(Integer)'''
         return int()
     @property
-    def PromptIndex(self):
-        '''(Integer)'''
-        return int()
-    @property
     def COL_Prompt(self):
         '''(Sequence of mvPrompt)'''
         return (mvPrompt(),)
+    @property
+    def PromptIndex(self):
+        '''(Integer)'''
+        return int()
     @property
     def COL_MainTab(self):
         '''(Sequence of fd_tab)'''
